@@ -6,6 +6,7 @@ public class Pedido {
 	private int quantidade;
 	private int valor;
 	private String observacao;
+	private int ID;
 
 	public Pedido() {
 
@@ -31,6 +32,10 @@ public class Pedido {
 		return observacao;
 	}
 
+	public int getID() {
+		return ID;
+	}
+
 	public void setLoja(Loja loja) {
 		this.loja = loja;
 	}
@@ -49,6 +54,10 @@ public class Pedido {
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 }
