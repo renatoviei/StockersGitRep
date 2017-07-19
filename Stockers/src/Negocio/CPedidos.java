@@ -1,5 +1,5 @@
 package Negocio;
 
-public class CPedidos {
+public class CPedidos implements ICPedidos {
 
 }

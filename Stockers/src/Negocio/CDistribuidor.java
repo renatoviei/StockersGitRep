@@ -1,6 +1,5 @@
 package Negocio;
 
-public class CDistribuidor {
-	
-	
+public class CDistribuidor implements ICDistribuidor {
+
 }

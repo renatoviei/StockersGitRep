@@ -1,6 +1,5 @@
 package Negocio;
 
-public class CLoja {
-
+public class CLoja implements ICLoja {
 
 }

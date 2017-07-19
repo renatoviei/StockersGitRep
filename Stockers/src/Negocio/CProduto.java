@@ -1,5 +1,5 @@
 package Negocio;
 
-public class CProduto {
+public class CProduto implements ICProduto {
 
 }
