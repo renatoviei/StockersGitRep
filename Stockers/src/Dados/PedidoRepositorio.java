@@ -1,26 +1,21 @@
 package Dados;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 import Negocio.Beans.Pedido;
 
 public class PedidoRepositorio implements IPedidoRepositorio {
 
 	private static PedidoRepositorio instanceUser;
-	private List<Pedido> pedidos;
+	private Pedido[] pedidos;
+	private int next;
 
-	private PedidoRepositorio() {
-		this.pedidos = new ArrayList<Pedido>();
+	private PedidoRepositorio(int tamanho) {
+		this.pedidos = new Pedido[tamanho];
+		this.next = 0;
 	}
 
 	public static synchronized PedidoRepositorio getInstance() {
 		if (instanceUser == null) {
-			instanceUser = new PedidoRepositorio();
+			instanceUser = new PedidoRepositorio(10);
 
 		} else {
 
@@ -28,33 +23,22 @@ public class PedidoRepositorio implements IPedidoRepositorio {
 		return instanceUser;
 	}
 
-	public boolean cadastrar(Pedido pedido) {
-		boolean resposta = true;
-		if (pedido != null) {
+	@Override
+	public void salvar() {
+		// TODO Auto-generated method stub
 
-			this.pedidos.add(pedido);
-
-		} else {
-			resposta = false;
-
-		}
-
-		return resposta;
 	}
 
 	@Override
-	public boolean deletar(int id) {
-		boolean resposta = true;
+	public Pedido cadastrar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-		if (existe(id)) {
-
-			this.pedidos.remove(procurar(id));
-
-		} else {
-			resposta = false;
-		}
-
-		return resposta;
+	@Override
+	public Pedido deletar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -64,85 +48,9 @@ public class PedidoRepositorio implements IPedidoRepositorio {
 	}
 
 	@Override
-	public Pedido procurar(int id) {
-		Pedido pedido = null;
-		if (id != 0) {
-			pedido = this.pedidos.get(buscarIndice(id));
-
-		}
-		return pedido;
-	}
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	@Override
-	public boolean existe(int id) {
-		boolean existe = false;
-		int i = this.buscarIndice(id);
-		if (i != this.pedidos.size()) {
-			existe = true;
-
-		}
-		return existe;
-	}
-
-	@Override
-	public int buscarIndice(int id) {
-		int i = 0;
-		boolean resposta = false;
-		while (resposta != true && i < this.pedidos.size()) {
-			if (id == pedidos.get(i).getID()) {
-				resposta = true;
-			} else {
-				i = i + 1;
-			}
-		}
-		return i;
-
-	}
-
-	// Codigo destinado aos testes com aquivos, antes de implementar o banco!
-	public void salvar() {
-
-		try {
-			File f = new File("");
-
-			FileOutputStream fos = new FileOutputStream(f);
-
-			ObjectOutputStream ous = new ObjectOutputStream(fos);
-
-			ous.writeObject(instanceUser);
-
-			ous.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	// Codigo destinado aos testes com aquivos, antes de implementar o banco!
-	public static PedidoRepositorio ler() {
-		PedidoRepositorio rep = null;
-		try {
-
-			File f = new File("");
-
-			FileInputStream fis = new FileInputStream(f);
-
-			ObjectInputStream ois = new ObjectInputStream(fis);
-
-			Object o = ois.readObject();
-			if (o != null) {
-				rep = (PedidoRepositorio) o;
-			}
-			ois.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return rep;
-
+	public Pedido procurar() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
