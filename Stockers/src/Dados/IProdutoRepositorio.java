@@ -6,12 +6,16 @@ public interface IProdutoRepositorio {
 
 	public void salvar();
 
-	public Produto cadastrar();
+	public boolean cadastrar(Produto produto);
 
-	public Produto deletar();
+	public boolean deletar(String codigo);
 
 	public Produto editar();
 
-	public Produto procurar();
+	public Produto procurar(String codigo);
+
+	public int buscarIndice(String codigo);
+
+	public boolean existe(String codigo);
 
 }

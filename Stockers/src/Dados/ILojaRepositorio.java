@@ -6,12 +6,16 @@ public interface ILojaRepositorio {
 
 	public void salvar();
 
-	public Loja cadastrar();
+	public boolean cadastrar(Loja loja);
 
-	public Loja deletar();
+	public boolean deletar(String nomeEmpresa);
 
 	public Loja editar();
 
-	public Loja procurar();
+	public Loja procurar(String nomeEmpresa);
+
+	public int buscarIndice(String nomeEmpresa);
+
+	public boolean existe(String nomeEmpresa);
 
 }

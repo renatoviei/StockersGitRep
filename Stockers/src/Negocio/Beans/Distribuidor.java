@@ -6,7 +6,7 @@ public class Distribuidor {
 
 	private String login;
 	private String senha;
-	private ArrayList<Loja> lojasCadastradas = new ArrayList();
+	private ArrayList<Loja> lojasCadastradas = new ArrayList<Loja>();
 
 	public Distribuidor(String login, String senha) {
 		this.login = login;

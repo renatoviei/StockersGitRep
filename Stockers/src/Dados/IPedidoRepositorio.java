@@ -6,12 +6,15 @@ public interface IPedidoRepositorio {
 
 	public void salvar();
 
-	public Pedido cadastrar();
+	public boolean cadastrar(Pedido pedido);
 
-	public Pedido deletar();
+	public boolean deletar(int id);
 
 	public Pedido editar();
 
-	public Pedido procurar();
+	public Pedido procurar(int id);
 
+	public int buscarIndice(int id);
+
+	public boolean existe(int id);
 }
