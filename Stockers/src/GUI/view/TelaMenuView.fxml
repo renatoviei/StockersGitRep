@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+   <children>
+      <TabPane layoutX="4.0" layoutY="25.0" prefHeight="687.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <tabs>
+          <Tab text="Lojas">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="257.0" prefWidth="589.0">
+                     <children>
+                        <TextField layoutX="86.0" layoutY="119.0" promptText="Nome da Loja" />
+                        <Button layoutX="127.0" layoutY="190.0" mnemonicParsing="false" text="Pesquisar" />
+                        <ListView layoutX="318.0" layoutY="14.0" prefHeight="657.0" prefWidth="942.0" />
+                        <Button layoutX="94.0" layoutY="264.0" mnemonicParsing="false" text="Mostrar Todas as Lojas" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Produtos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Pedidos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar layoutY="-2.0" prefHeight="27.0" prefWidth="1280.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Minha Conta">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Editar Conta" />
+              <MenuItem mnemonicParsing="false" text="Sair" />
+                  <MenuItem mnemonicParsing="false" text="Sair e Fechar" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ajuda">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

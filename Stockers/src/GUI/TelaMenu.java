@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class TelaLogin extends Application {
+public class TelaMenu extends Application {
 
 	private Stage primaryStage;
 	private AnchorPane mainLayout;
@@ -17,12 +17,12 @@ public class TelaLogin extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Stockers");
-		showTelaLoginView();
+		showTelaMenuView();
 	}
 
-	public void showTelaLoginView() throws IOException {
+	public void showTelaMenuView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaLogin.class.getResource("view/TelaLoginView.fxml"));
+		loader.setLocation(TelaMenu.class.getResource("view/TelaMenuView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setResizable(false);
