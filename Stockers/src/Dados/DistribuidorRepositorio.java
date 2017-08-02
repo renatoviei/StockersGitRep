@@ -24,37 +24,9 @@ public class DistribuidorRepositorio implements IDistribuidorRepositorio {
 	}
 
 	@Override
-	public void salvar() {
+	public void sefetuarLogin(String login, String senha) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public Distribuidor cadastrar() {
-		// TODO Auto-generated method stub
-
-		return null;
-	}
-
-	@Override
-	public Distribuidor deletar() {
-		// TODO Auto-generated method stub
-
-		return null;
-	}
-
-	@Override
-	public Distribuidor editar() {
-		// TODO Auto-generated method stub
-
-		return null;
-	}
-
-	@Override
-	public Distribuidor procurar() {
-		// TODO Auto-generated method stub
-
-		return null;
 	}
 
 }

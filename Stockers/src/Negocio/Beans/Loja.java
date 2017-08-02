@@ -31,9 +31,6 @@ public class Loja {
 		this.telefoneEmpresa = telefoneEmpresa;
 	}
 
-	public Loja() {
-
-	}
 
 	public String getNomeResponsavel() {
 		return nomeResponsavel;

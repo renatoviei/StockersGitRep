@@ -30,15 +30,15 @@ public class PedidoRepositorio implements IPedidoRepositorio {
 	}
 
 	@Override
-	public Pedido cadastrar() {
+	public boolean cadastrar(Pedido pedido) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
-	public Pedido deletar() {
+	public boolean deletar(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
@@ -48,9 +48,21 @@ public class PedidoRepositorio implements IPedidoRepositorio {
 	}
 
 	@Override
-	public Pedido procurar() {
+	public Pedido procurar(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int buscarIndice(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean existe(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

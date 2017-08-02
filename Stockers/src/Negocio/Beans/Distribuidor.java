@@ -13,9 +13,7 @@ public class Distribuidor {
 		this.senha = senha;
 	}
 
-	public Distribuidor() {
-
-	}
+	
 
 	public String getLogin() {
 		return login;

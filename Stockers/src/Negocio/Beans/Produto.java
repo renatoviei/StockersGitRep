@@ -20,9 +20,6 @@ public class Produto {
 		this.tamanho = tamanho;
 	}
 
-	public Produto() {
-
-	}
 
 	public String getNome() {
 		return nome;

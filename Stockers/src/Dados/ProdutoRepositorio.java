@@ -30,27 +30,40 @@ public class ProdutoRepositorio implements IProdutoRepositorio {
 	}
 
 	@Override
-	public Produto cadastrar() {
+	public boolean cadastrar(Produto produto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deletar(String codigo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Produto editar(String nome, float preco, String codigo, String informacoes, String categoria, String cor,
+			String tamanho) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Produto deletar() {
+	public Produto procurar(String codigo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Produto editar() {
+	public int buscarIndice(String codigo) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public Produto procurar() {
+	public boolean existe(String codigo) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }

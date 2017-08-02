@@ -8,8 +8,16 @@ public class Pedido {
 	private String observacao;
 	private int ID;
 
-	public Pedido() {
+	
 
+	public Pedido(Loja loja, Produto produto, int quantidade, int valor, String observacao, int iD) {
+		
+		this.loja = loja;
+		this.produto = produto;
+		this.quantidade = quantidade;
+		this.valor = valor;
+		this.observacao = observacao;
+		ID = iD;
 	}
 
 	public Loja getLoja() {

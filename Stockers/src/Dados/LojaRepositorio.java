@@ -23,6 +23,7 @@ public class LojaRepositorio implements ILojaRepositorio {
 		return instanceUser;
 	}
 
+
 	@Override
 	public void salvar() {
 		// TODO Auto-generated method stub
@@ -30,27 +31,40 @@ public class LojaRepositorio implements ILojaRepositorio {
 	}
 
 	@Override
-	public Loja cadastrar() {
+	public boolean cadastrar(Loja loja) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deletar(String nomeEmpresa) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Loja editar(String nomeResponsavel, int telefoneEmpresa, String rua, String cidade, String estado, String pais,
+			int cep, int cnpj, String razaoSocial, String email, String nomeEmpresa, String senha) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Loja deletar() {
+	public Loja procurar(String nomeEmpresa) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Loja editar() {
+	public int buscarIndice(String nomeEmpresa) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public Loja procurar() {
+	public boolean existe(String nomeEmpresa) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }
