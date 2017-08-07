@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class TelaMenuUsuario extends Application {
+public class TelaProduto extends Application {
 
 	private Stage primaryStage;
 	private AnchorPane mainLayout;
@@ -17,12 +17,12 @@ public class TelaMenuUsuario extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Stockers");
-		showTelaMenuUsuarioView();
+		showProdutoView();
 	}
 
-	public void showTelaMenuUsuarioView() throws IOException {
+	public void showProdutoView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaMenuAdm.class.getResource("view/TelaMenuUsuarioView.fxml"));
+		loader.setLocation(TelaMenuAdm.class.getResource("view/ProdutoView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setResizable(false);

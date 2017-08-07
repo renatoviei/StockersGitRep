@@ -50,7 +50,7 @@ public class CProduto implements ICProduto {
 			if (codigo.equals(aux.getCodigo())) {
 				this.repositorio.deletar(codigo);
 				x = true;
-				System.out.println("Produtoremovido com sucesso!");
+				System.out.println("Produto removido com sucesso!");
 			} else {
 				System.out.println("Senha errada, digite novamente");
 			}

@@ -1,8 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="1280.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.2730829420970266" layoutY="23.0" prefHeight="697.0" prefWidth="1280.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="695.0" prefWidth="362.0">
+               <children>
+                  <Button layoutX="117.0" layoutY="64.0" mnemonicParsing="false" text="Pesquisar Produto" />
+                  <Button layoutX="127.0" layoutY="442.0" mnemonicParsing="false" text="Mostrar Todos" />
+                  <TextField layoutX="99.0" layoutY="31.0" promptText="Nome do Produto" />
+                  <Accordion layoutX="1.0" layoutY="125.0" prefHeight="256.0" prefWidth="346.0">
+                    <panes>
+                      <TitledPane animated="false" text="Animal">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Cães" />
+                                    <CheckBox layoutX="14.0" layoutY="45.0" mnemonicParsing="false" text="Gatos" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Acessórios">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Coleiras" />
+                                    <CheckBox layoutX="14.0" layoutY="149.0" mnemonicParsing="false" text="Outros" />
+                                    <CheckBox layoutX="14.0" layoutY="82.0" mnemonicParsing="false" text="Alimentos" />
+                                    <CheckBox layoutX="14.0" layoutY="47.0" mnemonicParsing="false" text="Brinquedos" />
+                                    <CheckBox layoutX="14.0" layoutY="116.0" mnemonicParsing="false" text="Roupas" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" text="Tamanho">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="PP" />
+                                    <CheckBox layoutX="14.0" layoutY="48.0" mnemonicParsing="false" text="P" />
+                                    <CheckBox layoutX="14.0" layoutY="82.0" mnemonicParsing="false" text="M" />
+                                    <CheckBox layoutX="14.0" layoutY="116.0" mnemonicParsing="false" text="G" />
+                                    <CheckBox layoutX="14.0" layoutY="149.0" mnemonicParsing="false" text="GG" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                    </panes>
+                  </Accordion>
+                  <Button layoutX="109.0" layoutY="397.0" mnemonicParsing="false" text="Mostrar Selecionados" />
+                  <ListView layoutX="17.0" layoutY="481.0" prefHeight="143.0" prefWidth="318.0" />
+                  <Button layoutX="132.0" layoutY="645.0" mnemonicParsing="false" text="Fazer Pedido" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="333.0">
+               <children>
+                  <ListView layoutX="6.0" layoutY="7.0" prefHeight="680.0" prefWidth="911.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>

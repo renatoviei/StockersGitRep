@@ -3,20 +3,20 @@ package Negocio.Beans;
 public class Loja {
 
 	private String nomeResponsavel;
-	private int telefoneEmpresa;
+	private long telefoneEmpresa;
 	private String rua;
 	private String cidade;
 	private String estado;
 	private String pais;
-	private int cep;
-	private int cnpj;
+	private long cep;
+	private long cnpj;
 	private String razaoSocial;
 	private String email;
 	private String nomeEmpresa;
 	private String senha;
 
-	public Loja(String nomeResponsavel, int telefoneEmpresa, String rua, String cidade, String estado, String pais,
-			int cep, int cnpj, String razaoSocial, String email, String nomeEmpresa, String senha) {
+	public Loja(String nomeResponsavel, long telefoneEmpresa, String rua, String cidade, String estado, String pais,
+			long cep, long cnpj, String razaoSocial, String email, String nomeEmpresa, String senha) {
 		this.cep = cep;
 		this.cidade = cidade;
 		this.cnpj = cnpj;
@@ -40,7 +40,7 @@ public class Loja {
 		this.nomeResponsavel = nomeResponsavel;
 	}
 
-	public int getTelefoneEmpresa() {
+	public long getTelefoneEmpresa() {
 		return telefoneEmpresa;
 	}
 
@@ -80,7 +80,7 @@ public class Loja {
 		this.pais = pais;
 	}
 
-	public int getCep() {
+	public long getCep() {
 		return cep;
 	}
 
@@ -88,7 +88,7 @@ public class Loja {
 		this.cep = cep;
 	}
 
-	public int getCnpj() {
+	public long getCnpj() {
 		return cnpj;
 	}
 
