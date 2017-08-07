@@ -5,13 +5,11 @@ public class Produto {
 	private float preco;
 	private String codigo;
 	private String informacoes;
-	private String categoria;
 	private String cor;
 	private String tamanho;
 
-	public Produto(String nome, float preco, String codigo, String informacoes, String categoria, String cor,
+	public Produto(String nome, float preco, String codigo, String informacoes, String cor,
 			String tamanho) {
-		this.categoria = categoria;
 		this.codigo = codigo;
 		this.cor = cor;
 		this.informacoes = informacoes;
@@ -51,14 +49,6 @@ public class Produto {
 
 	public void setInformacoes(String informacoes) {
 		this.informacoes = informacoes;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
 	}
 
 	public String getCor() {
