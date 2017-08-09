@@ -2,6 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -85,6 +86,7 @@
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
+                        <ComboBox layoutX="79.0" layoutY="317.0" prefWidth="150.0" promptText="Ordenação" />
 							</children>
 						</AnchorPane>
 					</content>

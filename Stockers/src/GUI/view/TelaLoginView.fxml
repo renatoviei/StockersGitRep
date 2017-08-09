@@ -5,31 +5,19 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="949.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-4.0" layoutY="-9.0" prefHeight="613.0" prefWidth="937.0">
-         <children>
-            <ImageView fitHeight="602.0" fitWidth="951.0" layoutX="2.0" layoutY="6.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../../../../../../Pictures/hydgHRG.jpg" />
-               </image>
-            </ImageView>
-            <Button accessibleText="%key.return" layoutX="204.0" layoutY="410.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" text="Entrar" textAlignment="CENTER" AnchorPane.bottomAnchor="179.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="675.0" AnchorPane.topAnchor="410.0">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
-            <TextField layoutX="167.0" layoutY="270.0" promptText="Login" />
-            <PasswordField layoutX="167.0" layoutY="328.0" promptText="Senha" />
-            <Hyperlink layoutX="165.0" layoutY="359.0" text="Esqueci minha senha" />
-            <CheckBox layoutX="168.0" layoutY="301.0" mnemonicParsing="false" text="Lembre-se de mim" />
-         </children>
-      </AnchorPane>
+      <Button accessibleText="%key.return" layoutX="192.0" layoutY="375.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Entrar" textAlignment="CENTER" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="681.0" AnchorPane.topAnchor="375.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField layoutX="155.0" layoutY="233.0" promptText="Login" />
+      <PasswordField layoutX="156.0" layoutY="295.0" promptText="Senha" />
+      <Hyperlink layoutX="156.0" layoutY="331.0" text="Esqueci minha senha" />
+      <CheckBox layoutX="169.0" layoutY="268.0" mnemonicParsing="false" text="Lembre-se de mim" />
    </children>
 </AnchorPane>
