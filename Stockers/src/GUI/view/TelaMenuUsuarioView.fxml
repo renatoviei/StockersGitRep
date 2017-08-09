@@ -54,7 +54,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="662.0" prefWidth="923.0" />
+                                    <ListView layoutY="5.0" prefHeight="672.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                         </content>
