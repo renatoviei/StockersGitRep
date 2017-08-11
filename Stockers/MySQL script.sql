@@ -31,7 +31,7 @@ CREATE TABLE LOJA(
     cep varchar(11) not null,
     cnpj varchar(11) not null,
     razaoSocial varchar(20) not null,
-    email varchar(20),
+    email varchar(40),
     nomeEmpresa varchar(20) not null,
     senha varchar(20) not null,
     primary key (email)
