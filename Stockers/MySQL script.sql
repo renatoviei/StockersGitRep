@@ -14,8 +14,8 @@ CREATE TABLE PRODUTO(
 	preco numeric(6,2) not null,
 	codigo varchar(30),
 	informacoes varchar(50) not null,
-	categoria varchar(20),
-	cor varchar(20),
+	flag int not null,
+	tipo varchar(20),
 	tamanho varchar(10),
 	primary key (codigo)
 );
@@ -60,7 +60,7 @@ CREATE TABLE PEDIDOS(
 
 DROP TABLE IF EXISTS ITEM_PRODUTO;
 CREATE TABLE ITEM_PRODUTO(
-	id int(11),
+	idPed int(11),
     codigoProd varchar(30),
     quantidade int(11) not null,
     primary key (id,codigoProd),
