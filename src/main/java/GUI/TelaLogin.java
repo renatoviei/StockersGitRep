@@ -25,7 +25,6 @@ public class TelaLogin extends Application {
 		loader.setLocation(TelaLogin.class.getResource("view/TelaLoginView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
-		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

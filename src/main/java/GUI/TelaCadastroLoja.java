@@ -22,10 +22,11 @@ public class TelaCadastroLoja extends Application {
 
 	public void showTelaCadastroLojaView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaLogin.class.getResource("view/TelaCadastroLojaView.fxml"));
+		loader.setLocation(TelaCadastroLoja.class.getResource("view/TelaCadastroLojaView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setResizable(false);
+		primaryStage.resizableProperty().set(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
