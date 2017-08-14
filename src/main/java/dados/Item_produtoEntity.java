@@ -15,7 +15,8 @@ public class Item_produtoEntity implements Serializable {
 	
 	@Id
 	private int idPed;
-	//@Id
+	
+	@Column(name="codProd")
 	private String codProd;
 	
 	@Column(name="quantidade")

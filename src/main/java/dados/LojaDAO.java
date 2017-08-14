@@ -1,8 +1,11 @@
 package dados;
 
+import java.util.ArrayList;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 public class LojaDAO implements ILojaDAO {
 	
@@ -22,7 +25,7 @@ public class LojaDAO implements ILojaDAO {
 	}
 	
 	public EntityManager getEM(){
-		emf = Persistence.createEntityManagerFactory("Stockers");
+		emf = Persistence.createEntityManagerFactory("stockers");
 		em = emf.createEntityManager();
 		//emf.close();
 		return em;
@@ -54,7 +57,7 @@ public class LojaDAO implements ILojaDAO {
 		EntityManager em = getEM();
 		em.getTransaction().begin();
 		
-		LojaEntity sloja = em.find(LojaEntity.class, email);
+		LojaEntity sloja = em.find(LojaEntity.class, loja.getEmail());
 		
 		if(sloja == null) {
 			em.merge(loja);
@@ -96,5 +99,21 @@ public class LojaDAO implements ILojaDAO {
 	}
 	
 	//metodo listarLoja
+	public ArrayList<LojaEntity> listarLoja() {
+		EntityManager em = getEM();
+		
+		em.getTransaction().begin();
+		
+		ArrayList<LojaEntity> listaL = new ArrayList<LojaEntity>();
+		
+		String queryStr = "select * from stockers.loja"; //The query now changed to database independent
+		Query query = em.createQuery(queryStr);
+		
+		System.out.println("Result Size: "+query.getResultList().size());
+		
+		em.close();
+		emf.close();
+		return listaL;
+	}
 	
 }
