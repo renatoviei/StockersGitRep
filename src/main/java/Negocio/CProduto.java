@@ -1,14 +1,14 @@
 package Negocio;
 
-import Dados.IProdutoRepositorio;
-import Dados.ProdutoRepositorio;
 import Negocio.Beans.Produto;
+import dados.IProdutoRepositorio;
+import dados.ProdutoRepositorio;
 
 public class CProduto implements ICProduto {
 	private IProdutoRepositorio repositorio;
 
 	public CProduto() {
-		this.repositorio = ProdutoRepositorio.getInstance();
+		this.repositorio = ProdutoRepositorio.getInstanceLoja();
 	}
 
 	public boolean cadastarProduto(Produto produto) {

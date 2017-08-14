@@ -1,31 +1,44 @@
 package Negocio;
 
-import Dados.ILojaRepositorio;
-import Dados.LojaRepositorio;
 import Negocio.Beans.Loja;
+import dados.ILojaDAO;
+import dados.LojaDAO;
+import dados.LojaEntity;
+
 
 public class CLoja implements ICLoja {
-	private ILojaRepositorio repositorio;
+	
+	private static CLoja instanceLoja;
+	private ILojaDAO lojaR;
 
-	public CLoja() {
-		this.repositorio = LojaRepositorio.getInstance();
+	private CLoja() {
+		this.loja = LojaDAO.getInstanceLoja();
+	}
+	
+	public static synchronized CLoja getInstance() {
+		if (instanceLoja == null) {
+			instanceLoja = new CLoja();
+		}
+		return instanceLoja;
 	}
 
-	public boolean cadastarLoja(Loja loja) {
-		boolean resposta = false;
-		if (loja == null) {
-			System.out.println("PARAMETRO INVALIDO");
-		} else {
-			if (!(this.repositorio.existe(loja.getNomeEmpresa()))) {
-				this.repositorio.cadastrar(loja);
-				System.out.println("Loja cadastrado com sucesso! ");
-				resposta = true;
-			} else {
-				System.out.println("ERRO! LOJA JÁ CADASTRADA. TENTE OUTRO. ");
-			}
-		}
-		return resposta;
-
+	public void cadastarLoja(LojaEntity loja) {
+		lojaR.cadastrarLoja(loja);
+	}
+	
+	public LojaEntity editarLoja(LojaEntity loja) {
+		lojaR.editarLoja(loja);
+		return loja;
+	}
+	
+	public void apagarLoja(String email) {
+		lojaR.apagarLoja(email);
+	}
+	
+	public LojaEntity consultarLoja(String nome) {
+		LojaEntity loja;
+		loja = lojaR.consultarLoja(nome);
+		return loja;
 	}
 
 	public Loja pesquisarLoja(String nomeEmpresa) {
@@ -36,7 +49,6 @@ public class CLoja implements ICLoja {
 			loja = repositorio.procurar(nomeEmpresa);
 		}
 		return loja;
-
 	}
 
 	public void deletarLoja(String nomeEmpresa) {

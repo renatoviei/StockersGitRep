@@ -1,4 +1,4 @@
-package Dados;
+package dados;
 
 import java.io.Serializable;
 

@@ -1,14 +1,14 @@
 package Negocio;
 
-import Dados.IPedidoRepositorio;
-import Dados.PedidoRepositorio;
 import Negocio.Beans.Pedido;
+import dados.IPedidoRepositorio;
+import dados.PedidoRepositorio;
 
 public class CPedidos implements ICPedidos {
 	private IPedidoRepositorio repositorio;
 
 	public CPedidos() {
-		this.repositorio = PedidoRepositorio.getInstance();
+		this.repositorio = PedidoRepositorio.getInstanceLoja();
 	}
 
 	public boolean cadastarPedido(Pedido pedido) {

@@ -1,10 +1,10 @@
-package Dados;
+package dados;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class PedidoDAO {
+public class ProdutoDAO {
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -17,50 +17,50 @@ public class PedidoDAO {
 	}
 	
 	//salvar ou atualizar no BD
-	public PedidoEntity salvarPedido(PedidoEntity pedido) {
+	public ProdutoEntity salvarProduto(ProdutoEntity produto) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
 		
 		//verifica se ainda não está no banco?
-		if(pedido.getId() == 0) {
+		if(produto.getCodigo() == null) {
 			//então salva
-			em.persist(pedido);
+			em.persist(produto);
 		} else {	//atualiza
-			pedido = em.merge(pedido);
+			produto = em.merge(produto);
 		}
 		
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
-		return pedido;
+		return produto;
 	}
 	
 	//apagar do BD
-	public void apagarPedido(int id) {
+	public void apagarProduto(String codigo) {
 		EntityManager em = getEM();
-		
+			
 		em.getTransaction().begin();
 		
 		//consultar BD
-		PedidoEntity pedido = em.find(PedidoEntity.class, id);
+		ProdutoEntity produto = em.find(ProdutoEntity.class, codigo);
 		
-		em.remove(pedido);
+		em.remove(produto);
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
 	}
 	
 	//consultar do BD
-	public PedidoEntity consultarPedido(int id) {
+	public ProdutoEntity consultarProduto(String codigo) {
 		EntityManager em = getEM();
-		PedidoEntity pedido = null;
+		ProdutoEntity produto = null;
 		
-		pedido = em.find(PedidoEntity.class, id);
+		produto = em.find(ProdutoEntity.class, codigo);
 		
 		em.close();
 		emf.close();
-		return pedido;
+		return produto;
 	}
-	
+
 }

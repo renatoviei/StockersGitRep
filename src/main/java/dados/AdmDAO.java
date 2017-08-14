@@ -1,4 +1,4 @@
-package Dados;
+package dados;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
