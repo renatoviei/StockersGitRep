@@ -23,7 +23,7 @@ public class TelaMenuUsuario extends Application {
 
 	public void showTelaMenuUsuarioView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaMenuAdm.class.getResource("view/TelaMenuUsuarioView.fxml"));
+		loader.setLocation(TelaMenuUsuario.class.getResource("view/TelaMenuUsuarioView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);

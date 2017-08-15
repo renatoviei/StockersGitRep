@@ -23,7 +23,7 @@ public class TelaProduto extends Application {
 
 	public void showProdutoView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaMenuAdm.class.getResource("view/ProdutoView.fxml"));
+		loader.setLocation(TelaProduto.class.getResource("view/ProdutoView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);

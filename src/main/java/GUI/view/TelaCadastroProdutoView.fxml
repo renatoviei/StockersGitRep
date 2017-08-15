@@ -18,7 +18,7 @@
          <image>
             <Image url="@../../../../../Imagens/pLNP5zE.jpg" />
          </image></ImageView>
-		<Button layoutX="327.0" layoutY="515.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="146.0" text="Cadastrar" />
+		<Button layoutX="327.0" layoutY="515.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="146.0" text="Confirmar" />
 		<TextField layoutX="101.0" layoutY="147.0" promptText="nome" />
 		<PasswordField layoutX="326.0" layoutY="147.0" promptText="preço" />
 		<Label layoutX="41.0" layoutY="148.0" prefHeight="22.0" prefWidth="120.0" text="Nome:">

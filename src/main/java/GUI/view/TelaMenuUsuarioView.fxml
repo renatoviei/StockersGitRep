@@ -24,7 +24,7 @@
           <Menu mnemonicParsing="false" text="Minha Conta">
             <items>
                   <MenuItem mnemonicParsing="false" text="Editar Conta" />
-                  <MenuItem mnemonicParsing="false" text="Meus Pedidos" />
+                  <MenuItem mnemonicParsing="false" text="Visualizar Pedidos" />
               <MenuItem mnemonicParsing="false" text="Sair" />
                   <MenuItem mnemonicParsing="false" text="Sair e Fechar" />
             </items>
@@ -51,7 +51,7 @@
                   <Button layoutX="118.0" layoutY="94.0" mnemonicParsing="false" text="Pesquisar Produto" />
                   <TextField layoutX="100.0" layoutY="43.0" promptText="Nome do Produto" />
                   <ListView layoutX="16.0" layoutY="243.0" prefHeight="273.0" prefWidth="318.0" />
-                  <Button layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Fazer Pedido" />
+                  <Button layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Confirmar Pedido" />
                   <CheckBox layoutX="43.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Cachorros" textFill="RED">
                      <font>
                         <Font name="System Bold" size="13.0" />

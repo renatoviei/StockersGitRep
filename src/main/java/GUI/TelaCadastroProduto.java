@@ -24,7 +24,7 @@ public class TelaCadastroProduto extends Application {
 
 	public void showTelaCadastroProdutoView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaLogin.class.getResource("view/TelaCadastroProdutoView.fxml"));
+		loader.setLocation(TelaCadastroProduto.class.getResource("view/TelaCadastroProdutoView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);
