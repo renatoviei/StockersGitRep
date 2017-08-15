@@ -17,6 +17,7 @@ public class TelaCadastroLoja extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Stockers");
+		this.primaryStage.setResizable(false);
 		showTelaCadastroLojaView();
 	}
 
@@ -25,8 +26,6 @@ public class TelaCadastroLoja extends Application {
 		loader.setLocation(TelaCadastroLoja.class.getResource("view/TelaCadastroLojaView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
-		primaryStage.setResizable(false);
-		primaryStage.resizableProperty().set(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

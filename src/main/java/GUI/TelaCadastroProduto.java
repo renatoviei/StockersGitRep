@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,6 +18,7 @@ public class TelaCadastroProduto extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Stockers");
+		this.primaryStage.setResizable(false);
 		showTelaCadastroProdutoView();
 	}
 
@@ -25,7 +27,6 @@ public class TelaCadastroProduto extends Application {
 		loader.setLocation(TelaLogin.class.getResource("view/TelaCadastroProdutoView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
-		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="1280.0">
         <menus>
@@ -52,11 +52,11 @@
                   <TextField layoutX="100.0" layoutY="43.0" promptText="Nome do Produto" />
                   <ListView layoutX="16.0" layoutY="243.0" prefHeight="273.0" prefWidth="318.0" />
                   <Button layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Fazer Pedido" />
-                  <CheckBox layoutX="43.0" layoutY="159.0" mnemonicParsing="false" text="Cachorros" textFill="RED">
+                  <CheckBox layoutX="43.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Cachorros" textFill="RED">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></CheckBox>
-                  <CheckBox layoutX="249.0" layoutY="159.0" mnemonicParsing="false" text="Gatos" textFill="#00b4ff">
+                  <CheckBox layoutX="249.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Gatos" textFill="#00b4ff">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></CheckBox>

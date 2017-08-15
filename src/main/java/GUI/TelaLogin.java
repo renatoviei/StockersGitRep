@@ -17,6 +17,7 @@ public class TelaLogin extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Stockers");
+		this.primaryStage.setResizable(false);
 		showTelaLoginView();
 	}
 

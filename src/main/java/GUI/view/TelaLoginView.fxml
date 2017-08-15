@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
@@ -28,5 +28,10 @@
       <Button layoutX="188.0" layoutY="374.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Entrar" />
       <Button layoutX="542.0" layoutY="374.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Cadastrar-se" />
       <Label layoutX="521.0" layoutY="334.0" text="Não possui um cadastro?" />
+      <ImageView fitHeight="119.0" fitWidth="119.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Imagens/Stockers.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

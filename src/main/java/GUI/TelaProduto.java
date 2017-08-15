@@ -17,6 +17,7 @@ public class TelaProduto extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Stockers");
+		this.primaryStage.setResizable(false);
 		showProdutoView();
 	}
 
@@ -25,7 +26,6 @@ public class TelaProduto extends Application {
 		loader.setLocation(TelaMenuAdm.class.getResource("view/ProdutoView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
-		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}

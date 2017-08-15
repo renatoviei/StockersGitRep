@@ -4,8 +4,8 @@ public class ProdutoAlimento extends Produto {
 
 	private String tamanho;
 
-	public ProdutoAlimento(String nome, float preco, String codigo, String informacoes, String tamanho) {
-		super(nome, preco, codigo, informacoes);
+	public ProdutoAlimento(String nome, float preco, String codigo, String informacoes, int flag) {
+		super(nome, preco, codigo, informacoes, flag);
 		// TODO Auto-generated constructor stub
 
 		this.tamanho = tamanho;
