@@ -1,70 +1,44 @@
 package Negocio;
 
-import Negocio.Beans.Produto;
-import dados.IProdutoRepositorio;
-import dados.ProdutoRepositorio;
+import java.util.List;
+
+import dados.IProdutoDAO;
+import dados.ProdutoDAO;
+import dados.ProdutoEntity;
 
 public class CProduto implements ICProduto {
-	private IProdutoRepositorio repositorio;
-
-	public CProduto() {
-		this.repositorio = ProdutoRepositorio.getInstanceLoja();
-	}
-
-	public boolean cadastarProduto(Produto produto) {
-		boolean resposta = false;
-		if (produto == null) {
-			System.out.println("PARAMETRO INVALIDO");
-		} else {
-			if (!(this.repositorio.existe(produto.getCodigo()))) {
-				this.repositorio.cadastrar(produto);
-				System.out.println("Produto cadastrado com sucesso! ");
-				resposta = true;
-			} else {
-				System.out.println("ERRO! PRODUTO JÁ CADASTRADO. TENTE OUTRO. ");
-			}
-		}
-		return resposta;
-
-	}
-
-	public Produto pesquisarProduto(String codigo) {
-		Produto produto = null;
-		if (this.repositorio.procurar(codigo) == null) {
-			System.out.println("Produto nao existe");
-		} else {
-			produto = repositorio.procurar(codigo);
-		}
-		return produto;
-
-	}
-
-	public void deletarProduto(String codigo) {
-		boolean x = false;
-		while (x == false) {
-
-			Produto aux = null;
-
-			aux = pesquisarProduto(codigo);
-
-			if (codigo.equals(aux.getCodigo())) {
-				this.repositorio.deletar(codigo);
-				x = true;
-				System.out.println("Produto removido com sucesso!");
-			} else {
-				System.out.println("Senha errada, digite novamente");
-			}
-		}
-
-	}
-
-	public void salvarProduto() {
-		repositorio.salvar();
+	private static CProduto instance;
+	private IProdutoDAO iproduto;
+	
+	private CProduto() {
+		this.iproduto = ProdutoDAO.getInstance();
 	}
 	
-	public void editarProduto(String nome, float preco, String codigo, String informacoes, String categoria, String cor,
-			String tamanho) {
-		repositorio.editar(nome, preco, codigo, informacoes, categoria, cor, tamanho);
+	public static synchronized CProduto getInstance() {
+		if (instance == null) {
+			instance = new CProduto();
+		}
+		return instance;
+	}
+	
+	public void cadastrarProduto(ProdutoEntity produto) {
+		iproduto.cadastrarProduto(produto);
+	}
+	
+	public ProdutoEntity editarProduto(ProdutoEntity produto) {
+		return iproduto.editarProduto(produto);
+	}
+	
+	public void apagarProduto(String codigo) {
+		iproduto.apagarProduto(codigo);
+	}
+	
+	public ProdutoEntity consultarProduto(String nome) {
+		return iproduto.consultarProduto(nome);
+	}
+	
+	public List<ProdutoEntity> listarProduto() {
+		return iproduto.listarProduto();
 	}
 
 }

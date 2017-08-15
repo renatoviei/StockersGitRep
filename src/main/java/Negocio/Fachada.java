@@ -1,101 +1,115 @@
 package Negocio;
 
-import Negocio.Beans.Loja;
-import Negocio.Beans.Pedido;
-import Negocio.Beans.Produto;
+import java.util.List;
 
-public class Fachada {
+import dados.AdmEntity;
+import dados.ItemProdutoEntity;
+import dados.LojaEntity;
+import dados.PagamentoEntity;
+import dados.PedidoEntity;
+import dados.ProdutoEntity;
 
+public class Fachada implements IFachada {
 	private static Fachada instance;
-
-	ICLoja loja;
-	ICPedidos pedido;
-	ICProduto produto;
-	ICDistribuidor distribuidor;
-
-	public Fachada() {
-		this.distribuidor = new CDistribuidor();
-		this.loja = new CLoja();
-		this.produto = new CProduto();
-		this.pedido = new CPedidos();
-
+	private ICAdm iadm;
+	private ICLoja iloja;
+	private ICProduto iproduto;
+	private ICPedido ipedido;
+	private ICPagamento ipagamento;
+	private ICItemProduto iitemP;
+	
+	private Fachada() {
+		this.iadm = CAdm.getInstance();
+		this.iloja = CLoja.getInstance();
+		this.iproduto = CProduto.getInstance();
+		this.ipedido = CPedido.getInstance();
+		this.ipagamento = CPagamento.getInstance();
+		this.iitemP = CItemProduto.getInstance();
 	}
-
+	
 	public static synchronized Fachada getInstance() {
 		if (instance == null) {
 			instance = new Fachada();
 		}
 		return instance;
 	}
-
-	public boolean efetuarLoginDistribuidor(String login, String senha) {
-		return this.distribuidor.efetuarLoginDistribuidor(login, senha);
-
-	}
-
-	public void cadastarLoja(Loja loja) {
-		this.loja.cadastarLoja(loja);
-
-	}
-
-	public Loja pesquisarLoja(String nomeEmpresa) {
-		return this.loja.pesquisarLoja(nomeEmpresa);
-	}
-
-	public void deletarLoja(String nomeEmpresa) {
-		this.loja.pesquisarLoja(nomeEmpresa);
-	}
-
-	public boolean efetuarLoginLoja(String login, String senha, String nomeEmpresa) {
-		return this.loja.efetuarLoginLoja(login, senha, nomeEmpresa);
-	}
-
-	public void salvarLoja() {
-		this.loja.salvarLoja();
-	}
-
-	public void editarLoja(String nomeResponsavel, int telefoneEmpresa, String rua, String cidade, String estado, String pais,
-			int cep, int cnpj, String razaoSocial, String email, String nomeEmpresa, String senha) {
-		this.loja.editarLoja(nomeResponsavel, telefoneEmpresa, rua, cidade, estado, pais, cep, cnpj, razaoSocial, email, nomeEmpresa, senha);
+	
+	public AdmEntity efetuarLoginAdm(String login, String senha) {
+		return iadm.efetuarLoginAdm(login, senha);
 	}
 	
-	public void cadastarProduto(Produto produto) {
-		this.produto.cadastarProduto(produto);
+	public void cadastrarLoja(LojaEntity loja) {
+		iloja.cadastrarLoja(loja);
 	}
-
-	public Produto pesquisarProduto(String codigo) {
-		return this.produto.pesquisarProduto(codigo);
-
+	public LojaEntity editarLoja(LojaEntity loja) {
+		return iloja.editarLoja(loja);
 	}
-
-	public void deletarProduto(String nomeEmpresa) {
-		this.produto.deletarProduto(nomeEmpresa);
+	public void apagarLoja(String email) {
+		iloja.apagarLoja(email);
 	}
-
-	public void salvarProduto() {
-		this.produto.salvarProduto();
+	public LojaEntity consultarLoja(String nome) {
+		return iloja.consultarLoja(nome);
+	}
+	public List<LojaEntity> listarLoja() {
+		return iloja.listarLoja();
+	}
+	public LojaEntity efetuarLoginLoja(String email, String senha) {
+		return iloja.efetuarLoginLoja(email, senha);
 	}
 	
-	public void editarProduto(String nome, float preco, String codigo, String informacoes, String categoria, String cor,
-			String tamanho) {
-		this.produto.editarProduto(nome, preco, codigo, informacoes, categoria, cor, tamanho);
+	public void cadastrarProduto(ProdutoEntity produto) {
+		iproduto.cadastrarProduto(produto);
 	}
-
-	public void cadastarPedido(Pedido pedido) {
-		this.pedido.cadastarPedido(pedido);
+	public ProdutoEntity editarProduto(ProdutoEntity produto) {
+		return iproduto.editarProduto(produto);
 	}
-
-	public Pedido pesquisarPedido(int id) {
-		return this.pedido.pesquisarPedido(id);
-
+	public void apagarProduto(String codigo) {
+		iproduto.apagarProduto(codigo);
 	}
-
-	public void deletarPedido(int id) {
-		this.pedido.deletarPedido(id);
+	public ProdutoEntity consultarProduto(String nome) {
+		return iproduto.consultarProduto(nome);
 	}
-
-	public void salvarPedido() {
-		this.pedido.salvarPedido();
+	public List<ProdutoEntity> listarProduto() {
+		return iproduto.listarProduto();
+	}
+	
+	public void cadastrarPedido(PedidoEntity pedido) {
+		ipedido.cadastrarPedido(pedido);
+	}
+	public PedidoEntity editarPedido(PedidoEntity pedido) {
+		return ipedido.editarPedido(pedido);
+	}
+	public PedidoEntity consultarPedido(int id) {
+		return ipedido.consultarPedido(id);
+	}
+	public List<PedidoEntity> listarPedido() {
+		return ipedido.listarPedido();
+	}
+	
+	public void cadastrarPagamento(PagamentoEntity pagamento) {
+		ipagamento.cadastrarPagamento(pagamento);
+	}
+	public PagamentoEntity editarPagamento(PagamentoEntity pagamento) {
+		return ipagamento.editarPagamento(pagamento);
+	}
+	public PagamentoEntity consultarPagamento(String codigo) {
+		return ipagamento.consultarPagamento(codigo);
+	}
+	
+	public void cadastrarItemProduto(ItemProdutoEntity itemP) {
+		iitemP.cadastrarItemProduto(itemP);
+	}
+	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP) {
+		return iitemP.editarItemProduto(itemP);
+	}
+	public void apagarItemProduto(int id, String codigo) {
+		iitemP.apagarItemProduto(id, codigo);
+	}
+	public List<ItemProdutoEntity> consultarItemProduto(int id) {
+		return iitemP.consultarItemProduto(id);
+	}
+	public List<ItemProdutoEntity> listarItemProduto() {
+		return iitemP.listarItemProduto();
 	}
 
 }

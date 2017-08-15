@@ -1,20 +1,16 @@
 package Negocio;
 
-import Negocio.Beans.Loja;
+import java.util.List;
+
+import dados.LojaEntity;
 
 public interface ICLoja {
 
-	abstract boolean cadastarLoja(Loja loja);
-
-	abstract Loja pesquisarLoja(String nomeEmpresa);
-
-	abstract void deletarLoja(String nomeEmpresa);
-
-	abstract boolean efetuarLoginLoja(String login, String senha, String nomeEmpresa);
-
-	abstract void salvarLoja();
-	
-	abstract void editarLoja(String nomeResponsavel, int telefoneEmpresa, String rua, String cidade, String estado, String pais,
-	int cep, int cnpj, String razaoSocial, String email, String nomeEmpresa, String senha);
+	public void cadastrarLoja(LojaEntity loja);
+	public LojaEntity editarLoja(LojaEntity loja);
+	public void apagarLoja(String email);
+	public LojaEntity consultarLoja(String nome);
+	public List<LojaEntity> listarLoja();
+	public LojaEntity efetuarLoginLoja(String email, String senha);
 
 }

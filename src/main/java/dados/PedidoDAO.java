@@ -8,9 +8,21 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 public class PedidoDAO implements IPedidoDAO {
+	private static PedidoDAO instance;
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
+	
+	private PedidoDAO() {
+		
+	}
+	
+	public static synchronized PedidoDAO getInstance() {
+		if (instance == null) {
+			instance = new PedidoDAO();
+		}
+		return instance;
+	}
 	
 	public EntityManager getEM(){
 		emf = Persistence.createEntityManagerFactory("Stockers");

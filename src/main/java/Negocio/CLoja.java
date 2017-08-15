@@ -1,5 +1,7 @@
 package Negocio;
 
+import java.util.List;
+
 import Negocio.Beans.Loja;
 import dados.ILojaDAO;
 import dados.LojaDAO;
@@ -8,88 +10,42 @@ import dados.LojaEntity;
 
 public class CLoja implements ICLoja {
 	
-	private static CLoja instanceLoja;
-	private ILojaDAO lojaR;
+	private static CLoja instance;
+	private ILojaDAO iloja;
 
 	private CLoja() {
-		this.loja = LojaDAO.getInstanceLoja();
+		this.iloja = LojaDAO.getInstanceLoja();
 	}
 	
 	public static synchronized CLoja getInstance() {
-		if (instanceLoja == null) {
-			instanceLoja = new CLoja();
+		if (instance == null) {
+			instance = new CLoja();
 		}
-		return instanceLoja;
+		return instance;
 	}
-
-	public void cadastarLoja(LojaEntity loja) {
-		lojaR.cadastrarLoja(loja);
+	
+	public void cadastrarLoja(LojaEntity loja) {
+		iloja.cadastrarLoja(loja);
 	}
 	
 	public LojaEntity editarLoja(LojaEntity loja) {
-		lojaR.editarLoja(loja);
-		return loja;
+		return iloja.editarLoja(loja);
 	}
 	
 	public void apagarLoja(String email) {
-		lojaR.apagarLoja(email);
+		iloja.apagarLoja(email);
 	}
 	
 	public LojaEntity consultarLoja(String nome) {
-		LojaEntity loja;
-		loja = lojaR.consultarLoja(nome);
-		return loja;
-	}
-
-	public Loja pesquisarLoja(String nomeEmpresa) {
-		Loja loja = null;
-		if (this.repositorio.procurar(nomeEmpresa) == null) {
-			System.out.println("Loja nao existe");
-		} else {
-			loja = repositorio.procurar(nomeEmpresa);
-		}
-		return loja;
-	}
-
-	public void deletarLoja(String nomeEmpresa) {
-		boolean x = false;
-		while (x == false) {
-
-			Loja aux = null;
-
-			aux = pesquisarLoja(nomeEmpresa);
-
-			if (nomeEmpresa.equals(aux.getNomeEmpresa())) {
-				this.repositorio.deletar(nomeEmpresa);
-				x = true;
-				System.out.println("Loja removida com sucesso!");
-			} else {
-				System.out.println("Senha errada, digite novamente");
-			}
-		}
-
-	}
-
-	public boolean efetuarLoginLoja(String login, String senha, String nomeEmpresa) {
-		boolean logado = false;
-		if (repositorio.existe(login) && repositorio.procurar(nomeEmpresa).getSenha().equals(senha)) {
-
-			logado = true;
-			System.out.println("Login realizado com sucesso!");
-		} else {
-			System.out.println("LOGIN NÃO REALIZADO. CONTA NAO EXISTE!");
-		}
-		return logado;
-	}
-
-	public void salvarLoja() {
-		repositorio.salvar();
+		return iloja.consultarLoja(nome);
 	}
 	
-	public void editarLoja(String nomeResponsavel, int telefoneEmpresa, String rua, String cidade, String estado, String pais,
-			int cep, int cnpj, String razaoSocial, String email, String nomeEmpresa, String senha) {
-		repositorio.editar(nomeResponsavel, telefoneEmpresa, rua, cidade, estado, pais, cep, cnpj, razaoSocial, email, nomeEmpresa, senha);
+	public List<LojaEntity> listarLoja() {
+		return iloja.listarLoja();
 	}
-
+	
+	public LojaEntity efetuarLoginLoja(String email, String senha) {
+		return iloja.efetuarLogin(email, senha);
+	}
 
 }

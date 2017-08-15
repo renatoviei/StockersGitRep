@@ -1,18 +1,16 @@
 package Negocio;
 
+import java.util.List;
+
 import Negocio.Beans.Produto;
+import dados.ProdutoEntity;
 
 public interface ICProduto {
-
-	abstract boolean cadastarProduto(Produto produto);
-
-	abstract Produto pesquisarProduto(String codigo);
-
-	abstract void deletarProduto(String codigo);
-
-	abstract void salvarProduto();
 	
-	abstract void editarProduto(String nome, float preco, String codigo, String informacoes, String categoria, String cor,
-			String tamanho);
+	public void cadastrarProduto(ProdutoEntity produto);
+	public ProdutoEntity editarProduto(ProdutoEntity produto);
+	public void apagarProduto(String codigo);
+	public ProdutoEntity consultarProduto(String nome);
+	public List<ProdutoEntity> listarProduto();
 
 }

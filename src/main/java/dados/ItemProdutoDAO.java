@@ -8,10 +8,22 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public class Item_produtoDAO implements IItem_produtoDAO {
+public class ItemProdutoDAO implements IItemProdutoDAO {
+	private static ItemProdutoDAO instance;
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
+	
+	private ItemProdutoDAO() {
+		
+	}
+	
+	public static synchronized ItemProdutoDAO getInstance() {
+		if (instance == null) {
+			instance = new ItemProdutoDAO();
+		}
+		return instance;
+	}
 	
 	public EntityManager getEM(){
 		emf = Persistence.createEntityManagerFactory("Stockers");
@@ -20,20 +32,20 @@ public class Item_produtoDAO implements IItem_produtoDAO {
 		return em;
 	}
 	
-	public void cadastrarItem_produto(Item_produtoEntity itemP) {
+	public void cadastrarItemProduto(ItemProdutoEntity itemP) {
 		EntityManager em = getEM();
 		em.getTransaction().begin();
 		
 		//verifica se ainda não está no banco?
-		Item_produtoEntity sitemP = em.find(Item_produtoEntity.class, itemP.getIdPed());
+		ItemProdutoEntity sitemP = em.find(ItemProdutoEntity.class, itemP.getIdPed());
 		
 		if(sitemP == null) {
 			//então salva
 			em.persist(itemP);
 		} else {
-			List<Item_produtoEntity> listaP = this.consultarItem_produto(itemP.getIdPed());
+			List<ItemProdutoEntity> listaP = this.consultarItem_produto(itemP.getIdPed());
 			int i = 0;
-			for(Item_produtoEntity ip : listaP) {
+			for(ItemProdutoEntity ip : listaP) {
 				if(ip.getCodProd() == itemP.getCodProd()) {
 					i = 1;
 				}
@@ -50,7 +62,7 @@ public class Item_produtoDAO implements IItem_produtoDAO {
 		emf.close();
 	}
 	
-	public Item_produtoEntity editarItem_produto(Item_produtoEntity itemP) {
+	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
@@ -64,15 +76,15 @@ public class Item_produtoDAO implements IItem_produtoDAO {
 	}
 	
 	//apagar do BD
-	public void apagarItem_produto(int id, String codigo) {
+	public void apagarItemProduto(int id, String codigo) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
 		
 		//consultar BD
-		List<Item_produtoEntity> listaP = this.consultarItem_produto(id);
+		List<ItemProdutoEntity> listaP = this.consultarItem_produto(id);
 		
-		for(Item_produtoEntity ip : listaP) {
+		for(ItemProdutoEntity ip : listaP) {
 			if(ip.getCodProd() == codigo) {
 				em.remove(ip);
 			}
@@ -84,11 +96,11 @@ public class Item_produtoDAO implements IItem_produtoDAO {
 	}
 	
 	//consultar do BD
-	public List<Item_produtoEntity> consultarItem_produto(int id) {
-		List<Item_produtoEntity> listaI = this.listarItem_produto();
-		List<Item_produtoEntity> itemP = new ArrayList<Item_produtoEntity>();
+	public List<ItemProdutoEntity> consultarItemProduto(int id) {
+		List<ItemProdutoEntity> listaI = this.listarItem_produto();
+		List<ItemProdutoEntity> itemP = new ArrayList<ItemProdutoEntity>();
 		
-		for(Item_produtoEntity ip : listaI) {
+		for(ItemProdutoEntity ip : listaI) {
 			if(ip.getIdPed() == id) {
 				itemP.add(ip);
 			}
@@ -97,9 +109,9 @@ public class Item_produtoDAO implements IItem_produtoDAO {
 		return itemP;
 	}
 	
-	public List<Item_produtoEntity> listarItem_produto() {
+	public List<ItemProdutoEntity> listarItemProduto() {
 		EntityManager em = getEM();
-		List<Item_produtoEntity> listaI;
+		List<ItemProdutoEntity> listaI;
 		
 		String queryStr = "select * from stockers.item_produto"; //The query now changed to database independent
 		Query query = em.createQuery(queryStr);

@@ -1,43 +1,44 @@
 package Negocio;
 
-import Negocio.Beans.Loja;
-import Negocio.Beans.Pedido;
-import Negocio.Beans.Produto;
+import java.util.List;
+
+import dados.AdmEntity;
+import dados.ItemProdutoEntity;
+import dados.LojaEntity;
+import dados.PagamentoEntity;
+import dados.PedidoEntity;
+import dados.ProdutoEntity;
 
 public interface IFachada {
 
-	abstract boolean efetuarLoginDistribuidor(String login, String senha);
-
-	abstract void cadastarLoja(Loja loja);
-
-	abstract Loja pesquisarLoja(String nomeEmpresa);
-
-	abstract void deletarLoja(String nomeEmpresa);
-
-	abstract boolean efetuarLoginLoja(String login, String senha, String nomeEmpresa);
-
-	abstract void salvarLoja();
+	public AdmEntity efetuarLoginAdm(String login, String senha);
 	
-	abstract void editarLoja(String nomeResponsavel, int telefoneEmpresa, String rua, String cidade, String estado, String pais,
-			int cep, int cnpj, String razaoSocial, String email, String nomeEmpresa, String senha);
-
-	abstract void cadastarProduto(Loja loja);
-
-	abstract Produto pesquisarProduto(String codigo);
-
-	abstract void deletarProduto(String nomeEmpresa);
-
-	abstract void salvarProduto();
+	public void cadastrarLoja(LojaEntity loja);
+	public LojaEntity editarLoja(LojaEntity loja);
+	public void apagarLoja(String email);
+	public LojaEntity consultarLoja(String nome);
+	public List<LojaEntity> listarLoja();
+	public LojaEntity efetuarLoginLoja(String email, String senha);
 	
-	abstract void editarProduto(String nome, float preco, String codigo, String informacoes, String categoria, String cor,
-			String tamanho);
-
-	abstract void cadastarPedido(Loja loja);
-
-	abstract Pedido pesquisarPedido(int id);
-
-	abstract void deletarPedido(String nomeEmpresa);
-
-	abstract void salvarPedido();
+	public void cadastrarProduto(ProdutoEntity produto);
+	public ProdutoEntity editarProduto(ProdutoEntity produto);
+	public void apagarProduto(String codigo);
+	public ProdutoEntity consultarProduto(String nome);
+	public List<ProdutoEntity> listarProduto();
+	
+	public void cadastrarPedido(PedidoEntity pedido);
+	public PedidoEntity editarPedido(PedidoEntity pedido);
+	public PedidoEntity consultarPedido(int id);
+	public List<PedidoEntity> listarPedido();
+	
+	public void cadastrarPagamento(PagamentoEntity pagamento);
+	public PagamentoEntity editarPagamento(PagamentoEntity pagamento);
+	public PagamentoEntity consultarPagamento(String codigo);
+	
+	public void cadastrarItemProduto(ItemProdutoEntity itemP);
+	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP);
+	public void apagarItemProduto(int id, String codigo);
+	public List<ItemProdutoEntity> consultarItemProduto(int id);
+	public List<ItemProdutoEntity> listarItemProduto();
 
 }

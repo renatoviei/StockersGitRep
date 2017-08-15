@@ -8,9 +8,21 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 public class ProdutoDAO implements IProdutoDAO {
+	private static ProdutoDAO instance;
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
+	
+	private ProdutoDAO() {
+		
+	}
+	
+	public static synchronized ProdutoDAO getInstance() {
+		if (instance == null) {
+			instance = new ProdutoDAO();
+		}
+		return instance;
+	}
 	
 	public EntityManager getEM(){
 		emf = Persistence.createEntityManagerFactory("Stockers");

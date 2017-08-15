@@ -9,5 +9,6 @@ public interface ILojaDAO {
 	public void apagarLoja(String email);
 	public LojaEntity consultarLoja(String nome);
 	public List<LojaEntity> listarLoja();
+	public LojaEntity efetuarLogin(String email, String senha);
 
 }

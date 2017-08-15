@@ -5,9 +5,21 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class PagamentoDAO implements IPagamentoDAO {
+	private static PagamentoDAO instance;
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
+	
+	private PagamentoDAO() {
+		
+	}
+	
+	public static synchronized PagamentoDAO getInstance() {
+		if (instance == null) {
+			instance = new PagamentoDAO();
+		}
+		return instance;
+	}
 	
 	public EntityManager getEM(){
 		emf = Persistence.createEntityManagerFactory("Stockers");

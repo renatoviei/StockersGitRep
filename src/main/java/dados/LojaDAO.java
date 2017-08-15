@@ -1,6 +1,5 @@
 package dados;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -32,7 +31,7 @@ public class LojaDAO implements ILojaDAO {
 		return em;
 	}
 	
-	//salvar ou atualizar no BD
+	//salvar no BD
 	public void cadastrarLoja(LojaEntity loja) {
 		EntityManager em = getEM();
 		
@@ -54,6 +53,7 @@ public class LojaDAO implements ILojaDAO {
 		emf.close();
 	}
 	
+	//atualizar no BD
 	public LojaEntity editarLoja(LojaEntity loja) {
 		EntityManager em = getEM();
 		em.getTransaction().begin();
@@ -119,6 +119,20 @@ public class LojaDAO implements ILojaDAO {
 		em.close();
 		emf.close();
 		return listaL;
+	}
+	
+	public LojaEntity efetuarLogin(String email, String senha) {
+		EntityManager em = getEM();
+		LojaEntity loja = null;
+		
+		loja = em.find(LojaEntity.class, email);
+		
+		if(loja.getSenha() != senha)
+			loja = null;
+		
+		em.close();
+		emf.close();
+		return loja;
 	}
 	
 }
