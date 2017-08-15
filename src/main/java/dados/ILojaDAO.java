@@ -1,13 +1,13 @@
 package dados;
 
-import javax.persistence.EntityManager;
+import java.util.List;
 
 public interface ILojaDAO {
 	
-	public EntityManager getEM();
 	public void cadastrarLoja(LojaEntity loja);
 	public LojaEntity editarLoja(LojaEntity loja);
 	public void apagarLoja(String email);
 	public LojaEntity consultarLoja(String nome);
+	public List<LojaEntity> listarLoja();
 
 }

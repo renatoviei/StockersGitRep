@@ -1,10 +1,13 @@
 package dados;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
-public class ProdutoDAO {
+public class ProdutoDAO implements IProdutoDAO {
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -16,19 +19,32 @@ public class ProdutoDAO {
 		return em;
 	}
 	
-	//salvar ou atualizar no BD
-	public ProdutoEntity salvarProduto(ProdutoEntity produto) {
+	public void cadastrarProduto(ProdutoEntity produto) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
 		
 		//verifica se ainda não está no banco?
-		if(produto.getCodigo() == null) {
+		ProdutoEntity sproduto = em.find(ProdutoEntity.class, produto.getCodigo());
+		
+		if(sproduto == null) {
 			//então salva
 			em.persist(produto);
-		} else {	//atualiza
-			produto = em.merge(produto);
+		} else {
+			System.out.println("Lancar excecao de produto ja existente!");
 		}
+		
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+	}
+	
+	public ProdutoEntity editarProduto(ProdutoEntity produto) {
+		EntityManager em = getEM();
+		
+		em.getTransaction().begin();
+		
+		em.merge(produto);
 		
 		em.getTransaction().commit();
 		em.close();
@@ -52,15 +68,33 @@ public class ProdutoDAO {
 	}
 	
 	//consultar do BD
-	public ProdutoEntity consultarProduto(String codigo) {
-		EntityManager em = getEM();
+	public ProdutoEntity consultarProduto(String nome) {
+		List<ProdutoEntity> listaP = this.listarProduto();
 		ProdutoEntity produto = null;
 		
-		produto = em.find(ProdutoEntity.class, codigo);
+		for(ProdutoEntity p : listaP) {
+			if(p.getNome() == nome) {
+				produto = p;
+			}
+		}
+		
+		return produto;
+	}
+	
+	public List<ProdutoEntity> listarProduto() {
+		EntityManager em = getEM();
+		
+		List<ProdutoEntity> listaP;
+		
+		String queryStr = "select * from stockers.produto"; //The query now changed to database independent
+		Query query = em.createQuery(queryStr);
+		listaP = query.getResultList();
+		
+		//System.out.println("Result Size: "+query.getResultList().size());
 		
 		em.close();
 		emf.close();
-		return produto;
+		return listaP;
 	}
 
 }

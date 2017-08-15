@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class PagamentoDAO {
+public class PagamentoDAO implements IPagamentoDAO {
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -16,19 +16,30 @@ public class PagamentoDAO {
 		return em;
 	}
 	
-	//salvar ou atualizar no BD
-	public PagamentoEntity salvarPagamento(PagamentoEntity pagamento) {
+	public void cadastrarPagamento(PagamentoEntity pagamento) {
 		EntityManager em = getEM();
-		
 		em.getTransaction().begin();
 		
 		//verifica se ainda não está no banco?
-		if(pagamento.getCodigo() == null) {
+		PagamentoEntity spagamento = em.find(PagamentoEntity.class, pagamento.getCodigo());
+		
+		if(spagamento == null) {
 			//então salva
 			em.persist(pagamento);
-		} else {	//atualiza
-			pagamento = em.merge(pagamento);
+		} else {
+			System.out.println("Lancar excecao de pagamento ja existente!");
 		}
+				
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+	}
+	
+	public PagamentoEntity editarPagamento(PagamentoEntity pagamento) {
+		EntityManager em = getEM();
+		em.getTransaction().begin();
+		
+		em.merge(pagamento);
 		
 		em.getTransaction().commit();
 		em.close();
@@ -37,7 +48,7 @@ public class PagamentoDAO {
 	}
 	
 	//apagar do BD
-	public void apagarPagamento(String codigo) {
+	/*public void apagarPagamento(String codigo) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
@@ -49,7 +60,7 @@ public class PagamentoDAO {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
-	}
+	}*/
 	
 	//consultar do BD
 	public PagamentoEntity consultarPagamento(String codigo) {

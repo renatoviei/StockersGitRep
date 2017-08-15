@@ -1,6 +1,7 @@
 package dados;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -37,7 +38,7 @@ public class LojaDAO implements ILojaDAO {
 		
 		em.getTransaction().begin();
 		
-		LojaEntity sloja = this.consultarLoja(loja.getEmail()); 
+		LojaEntity sloja = em.find(LojaEntity.class, loja.getEmail()); 
 		
 		//verifica se ainda não está no banco?
 		//if(loja.getLojaEmail() == null) {
@@ -62,7 +63,11 @@ public class LojaDAO implements ILojaDAO {
 		if(sloja == null) {
 			em.merge(loja);
 		} else {
-			System.out.println("Lancar excecao de email ja existente!");
+			if(loja.getEmail() == sloja.getEmail()) {
+				em.merge(loja);
+			} else {
+				System.out.println("Lancar excecao de email ja existente!");
+			}
 		}
 		
 		em.getTransaction().commit();
@@ -87,29 +92,29 @@ public class LojaDAO implements ILojaDAO {
 	}
 	
 	//consultar do BD
-	public LojaEntity consultarLoja(String email) {
-		EntityManager em = getEM();
+	public LojaEntity consultarLoja(String nome) {
+		List<LojaEntity> listaL = this.listarLoja();
 		LojaEntity loja = null;
 		
-		loja = em.find(LojaEntity.class, email);
+		for(LojaEntity l : listaL) {
+			if(l.getNomeEmpresa() == nome)
+				loja = l;
+		}
 		
-		em.close();
-		emf.close();
 		return loja;
 	}
 	
 	//metodo listarLoja
-	public ArrayList<LojaEntity> listarLoja() {
+	public List<LojaEntity> listarLoja() {
 		EntityManager em = getEM();
-		
-		em.getTransaction().begin();
-		
-		ArrayList<LojaEntity> listaL = new ArrayList<LojaEntity>();
+				
+		List<LojaEntity> listaL;
 		
 		String queryStr = "select * from stockers.loja"; //The query now changed to database independent
 		Query query = em.createQuery(queryStr);
+		listaL = query.getResultList();
 		
-		System.out.println("Result Size: "+query.getResultList().size());
+		//System.out.println("Result Size: "+query.getResultList().size());
 		
 		em.close();
 		emf.close();

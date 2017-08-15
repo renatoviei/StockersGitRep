@@ -46,8 +46,8 @@ CREATE TABLE PAGAMENTO(
     primary key (codigo)
 );
 
-DROP TABLE IF EXISTS PEDIDOS;
-CREATE TABLE PEDIDOS(
+DROP TABLE IF EXISTS PEDIDO;
+CREATE TABLE PEDIDO(
 	id int(11),
     valor numeric(6,2) not null,
     observacao varchar(50),

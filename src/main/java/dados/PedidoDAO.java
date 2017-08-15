@@ -1,10 +1,13 @@
 package dados;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
-public class PedidoDAO {
+public class PedidoDAO implements IPedidoDAO {
 	
 	private EntityManagerFactory emf;
 	private EntityManager em;
@@ -16,19 +19,32 @@ public class PedidoDAO {
 		return em;
 	}
 	
-	//salvar ou atualizar no BD
-	public PedidoEntity salvarPedido(PedidoEntity pedido) {
+	public void cadastrarPedido(PedidoEntity pedido) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
 		
 		//verifica se ainda não está no banco?
-		if(pedido.getId() == 0) {
+		PedidoEntity spedido = em.find(PedidoEntity.class, pedido.getId());
+		
+		if(spedido == null) {
 			//então salva
 			em.persist(pedido);
-		} else {	//atualiza
-			pedido = em.merge(pedido);
+		} else {
+			System.out.println("Lancar excecao de pedido ja existente!");
 		}
+		
+		em.getTransaction().commit();
+		em.close();
+		emf.close();
+	}
+	
+	public PedidoEntity editarPedido(PedidoEntity pedido) {
+		EntityManager em = getEM();
+		
+		em.getTransaction().begin();
+		
+		em.merge(pedido);
 		
 		em.getTransaction().commit();
 		em.close();
@@ -37,7 +53,7 @@ public class PedidoDAO {
 	}
 	
 	//apagar do BD
-	public void apagarPedido(int id) {
+	/*public void apagarPedido(int id) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
@@ -49,7 +65,7 @@ public class PedidoDAO {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
-	}
+	}*/
 	
 	//consultar do BD
 	public PedidoEntity consultarPedido(int id) {
@@ -61,6 +77,22 @@ public class PedidoDAO {
 		em.close();
 		emf.close();
 		return pedido;
+	}
+	
+	public List<PedidoEntity> listarPedido() {
+		EntityManager em = getEM();
+		
+		List<PedidoEntity> listaP;
+		
+		String queryStr = "select * from stockers.pedido"; //The query now changed to database independent
+		Query query = em.createQuery(queryStr);
+		listaP = query.getResultList();
+		
+		//System.out.println("Result Size: "+query.getResultList().size());
+		
+		em.close();
+		emf.close();
+		return listaP;
 	}
 	
 }
