@@ -23,7 +23,7 @@
 							<children>
                         <ImageView fitHeight="666.0" fitWidth="668.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Imagens/depositphotos_46630039-stock-illustration-animal-seamless-vector-pattern-of.jpg" />
+                              <Image url="https://s-media-cache-ak0.pinimg.com/originals/d6/e4/d5/d6e4d5ba43675474e1fc67ad57556b9e.jpg" />
                            </image>
                         </ImageView>
 								<TextField layoutX="79.0" layoutY="80.0" promptText="Nome da Loja">
