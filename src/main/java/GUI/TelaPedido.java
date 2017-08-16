@@ -23,7 +23,7 @@ public class TelaPedido extends Application {
 
 	public void showPedidoView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaPedido.class.getResource("view/PedidoView.fxml"));
+		loader.setLocation(TelaPedido.class.getResource("view/TelaPedidoView.fxml"));
 		mainLayout = loader.load();
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);
