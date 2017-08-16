@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import Negocio.Fachada;
 import Negocio.IFachada;
 import Negocio.Beans.LojaEntity;
 import javafx.fxml.FXML;
@@ -19,6 +20,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 public class TratadorEventoTelaLogin {
@@ -30,12 +32,26 @@ public class TratadorEventoTelaLogin {
 	@FXML
 	private TextField senha;
 	
-	private IFachada f;
+	private IFachada f = Fachada.getInstance();
+	
 
 	@FXML
 	private void initialize() {
 		System.out.println(email.getText() + " tem " + senha.getText());
 		entrar.setOnAction((event) -> {
+			
+			LojaEntity loja = f.efetuarLoginLoja(email.getText(), senha.getText());
+			TelaMenuUsuario tela = new TelaMenuUsuario(loja);
+			Stage stage = new Stage();
+			try {
+				tela.start(stage);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			/*
 			if (f.efetuarLoginLoja(email.getText(), senha.getText()).getEmail().equals("vazio")) {
 				JOptionPane.showMessageDialog(null, "Este login não existe");
 			} else {
@@ -47,7 +63,7 @@ public class TratadorEventoTelaLogin {
 					e.printStackTrace();
 				}
 			}
-
+*/
 		});
 	}
 }

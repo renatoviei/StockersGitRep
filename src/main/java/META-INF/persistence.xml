@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="stockers" transaction-type="RESOURCE_LOCAL">
-	 <class>dados.AdmEntity</class>
-	 <class>dados.ItemProdutoEntity</class>
-	 <class>dados.LojaEntity</class>
-	 <class>dados.PagamentoEntity</class>
-	 <class>dados.PedidoEntity</class>
-	 <class>dados.ProdutoEntity</class>
+	 <class>Negocio.Beans.AdmEntity</class>
+	 <class>Negocio.Beans.ItemProdutoEntity</class>
+	 <class>Negocio.Beans.LojaEntity</class>
+	 <class>Negocio.Beans.PedidoEntity</class>
+	 <class>Negocio.Beans.ProdutoEntity</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/stockers?useTimezone=true&amp;serverTimezone=UTC"/>
 			<property name="javax.persistence.jdbc.user" value="admSistema"/>
