@@ -41,23 +41,24 @@ public class TratadorEventoTelaLogin {
 		entrar.setOnAction((event) -> {
 			LojaEntity loja = f.efetuarLoginLoja(email.getText(), senha.getText());
 			if (loja.getEmail().equals("vazio")) {
+				
+				AdmEntity adm = f.efetuarLoginAdm(email.getText(), senha.getText());
+				if (adm.getLogin().equals("vazio")) {
+					JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
+				} else {
+					TelaMenuAdm tela = new TelaMenuAdm(adm);
+					Stage stage = new Stage();
+					try {
+						tela.start(stage);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					((Node)(event.getSource())).getScene().getWindow().hide();
+				}
+				
 			} else {
 				TelaMenuUsuario tela = new TelaMenuUsuario(loja);
-				Stage stage = new Stage();
-				try {
-					tela.start(stage);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				((Node)(event.getSource())).getScene().getWindow().hide();
-			}
-			
-			AdmEntity adm = f.efetuarLoginAdm(email.getText(), senha.getText());
-			if (adm.getLogin().equals("vazio")) {
-				JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
-			} else {
-				TelaMenuAdm tela = new TelaMenuAdm(adm);
 				Stage stage = new Stage();
 				try {
 					tela.start(stage);
