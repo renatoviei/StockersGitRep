@@ -1,8 +1,13 @@
 package GUI;
 
+import java.beans.EventHandler;
 import java.io.IOException;
 
+import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
+
+import Negocio.IFachada;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -10,6 +15,7 @@ import javafx.stage.Stage;
 
 public class TelaLogin extends Application {
 
+	private IFachada f;
 	private Stage primaryStage;
 	private AnchorPane mainLayout;
 
@@ -29,7 +35,7 @@ public class TelaLogin extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
