@@ -135,8 +135,10 @@ public class LojaDAO implements ILojaDAO {
 		
 		loja = em.find(LojaEntity.class, email);
 		
-		if(!loja.getSenha().equals(senha))
-			loja = null;
+		if(!loja.getSenha().equals(senha)) {
+			loja = new LojaEntity();
+			loja.setEmail("vazio");
+		}
 		
 		em.close();
 		emf.close();

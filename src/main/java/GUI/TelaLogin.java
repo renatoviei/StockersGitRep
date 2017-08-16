@@ -16,24 +16,21 @@ import javafx.stage.Stage;
 public class TelaLogin extends Application {
 
 	private IFachada f;
-	private Stage primaryStage;
-	private AnchorPane mainLayout;
 
 	@Override
-	public void start(Stage primaryStage) throws IOException {
-		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Stockers");
-		this.primaryStage.setResizable(false);
-		showTelaLoginView();
-	}
-
-	public void showTelaLoginView() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(TelaLogin.class.getResource("view/TelaLoginView.fxml"));
-		mainLayout = loader.load();
-		Scene scene = new Scene(mainLayout);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+	public void start(Stage primaryStage) {
+		primaryStage.setTitle("Stockers");
+		primaryStage.setResizable(false);
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(TelaLogin.class.getResource("view/TelaLoginView.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+			Scene scene = new Scene(page);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args) {
