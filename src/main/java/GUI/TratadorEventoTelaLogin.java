@@ -31,39 +31,26 @@ public class TratadorEventoTelaLogin {
 	private TextField email;
 	@FXML
 	private TextField senha;
-	
+
 	private IFachada f = Fachada.getInstance();
-	
 
 	@FXML
 	private void initialize() {
-		System.out.println(email.getText() + " tem " + senha.getText());
 		entrar.setOnAction((event) -> {
-			
 			LojaEntity loja = f.efetuarLoginLoja(email.getText(), senha.getText());
-			TelaMenuUsuario tela = new TelaMenuUsuario(loja);
-			Stage stage = new Stage();
-			try {
-				tela.start(stage);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-			/*
-			if (f.efetuarLoginLoja(email.getText(), senha.getText()).getEmail().equals("vazio")) {
+			if (loja.getEmail().equals("vazio")) {
 				JOptionPane.showMessageDialog(null, "Este login não existe");
 			} else {
-				TelaMenuUsuario menu = new TelaMenuUsuario();
+				TelaMenuUsuario tela = new TelaMenuUsuario(loja);
+				Stage stage = new Stage();
 				try {
-					menu.showTelaMenuUsuarioView();
+					tela.start(stage);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-*/
+			
 		});
 	}
 }

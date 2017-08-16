@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.swing.plaf.basic.BasicOptionPaneUI.ButtonActionListener;
 
+import Negocio.Fachada;
 import Negocio.IFachada;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -14,8 +15,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class TelaLogin extends Application {
-
-	private IFachada f;
 
 	@Override
 	public void start(Stage primaryStage) {

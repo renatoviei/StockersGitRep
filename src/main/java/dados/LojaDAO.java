@@ -132,12 +132,14 @@ public class LojaDAO implements ILojaDAO {
 	public LojaEntity efetuarLogin(String email, String senha) {
 		EntityManager em = getEM();
 		LojaEntity loja;
+		
 		loja = em.find(LojaEntity.class, email);
-		System.out.println(loja.getEmail());
-		//if(!loja.getSenha().equals(senha)) {
-		//	loja = new LojaEntity();
-		//	loja.setEmail("vazio");
-		//}
+		
+		if(loja == null) {
+			loja = new LojaEntity();
+			loja.setEmail("vazio");
+			loja.setSenha("vazio");
+		}
 		
 		em.close();
 		emf.close();
