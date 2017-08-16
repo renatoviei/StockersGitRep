@@ -1,8 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <ImageView fitHeight="228.0" fitWidth="304.0" layoutX="495.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Imagens/pLNP5zE.jpg" />
+         </image></ImageView>
+		<Button layoutX="327.0" layoutY="515.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="146.0" text="Confirmar" />
+		<TextField layoutX="101.0" layoutY="147.0" promptText="nome" />
+		<PasswordField layoutX="326.0" layoutY="147.0" promptText="preço" />
+		<Label layoutX="41.0" layoutY="148.0" prefHeight="22.0" prefWidth="120.0" text="Nome:">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+		<Label layoutX="267.0" layoutY="150.0" prefHeight="22.0" prefWidth="120.0" text="Preço:">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+      <ImageView fitHeight="119.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Imagens/Stockers.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="555.0" layoutY="147.0" promptText="código" />
+      <Label layoutX="495.0" layoutY="150.0" prefHeight="22.0" prefWidth="120.0" text="Código:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="196.0" prefHeight="22.0" prefWidth="120.0" text="Categoria:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ButtonBar buttonMinWidth="30.0" layoutX="118.0" layoutY="196.0" prefHeight="22.0" prefWidth="677.0">
+         <buttons>
+            <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="90.0" text="Coleiras" />
+            <RadioButton mnemonicParsing="false" text="Roupas" />
+            <RadioButton mnemonicParsing="false" prefHeight="17.0" prefWidth="119.0" text="Acessórios" />
+            <RadioButton mnemonicParsing="false" text="Higiene" />
+            <RadioButton mnemonicParsing="false" text="Alimento" />
+            <RadioButton mnemonicParsing="false" text="Medicamentos" />
+         </buttons>
+      </ButtonBar>
+      <TextArea layoutX="41.0" layoutY="267.0" prefHeight="183.0" prefWidth="486.0" />
+      <Label layoutX="41.0" layoutY="245.0" prefHeight="22.0" prefWidth="120.0" text="Informações:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+	</children>
 </AnchorPane>
-

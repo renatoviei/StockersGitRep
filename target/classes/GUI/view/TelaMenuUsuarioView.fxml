@@ -11,16 +11,20 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="1280.0">
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="1280.0">
         <menus>
           <Menu mnemonicParsing="false" text="Minha Conta">
             <items>
                   <MenuItem mnemonicParsing="false" text="Editar Conta" />
-                  <MenuItem mnemonicParsing="false" text="Meus Pedidos" />
+                  <MenuItem mnemonicParsing="false" text="Visualizar Pedidos" />
               <MenuItem mnemonicParsing="false" text="Sair" />
                   <MenuItem mnemonicParsing="false" text="Sair e Fechar" />
             </items>
@@ -37,13 +41,29 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="695.0" prefWidth="362.0">
                <children>
+                  <ImageView fitHeight="697.0" fitWidth="707.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Imagens/depositphotos_46630039-stock-illustration-animal-seamless-vector-pattern-of.jpg" />
+                     </image>
+                  </ImageView>
+                  <Pane layoutX="-6.0" layoutY="156.0" prefHeight="25.0" prefWidth="1286.0" style="-fx-background-color: gray;" />
+                  <Pane layoutY="216.0" prefHeight="305.0" prefWidth="1286.0" style="-fx-background-color: gray;" />
                   <Button layoutX="118.0" layoutY="94.0" mnemonicParsing="false" text="Pesquisar Produto" />
                   <TextField layoutX="100.0" layoutY="43.0" promptText="Nome do Produto" />
                   <ListView layoutX="16.0" layoutY="243.0" prefHeight="273.0" prefWidth="318.0" />
-                  <Button layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Fazer Pedido" />
-                  <CheckBox layoutX="43.0" layoutY="159.0" mnemonicParsing="false" text="Cachorros" />
-                  <CheckBox layoutX="231.0" layoutY="159.0" mnemonicParsing="false" text="Gatos" />
-                  <Label layoutX="138.0" layoutY="219.0" text="Meu Carrinho" />
+                  <Button layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Confirmar Pedido" />
+                  <CheckBox layoutX="43.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Cachorros" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></CheckBox>
+                  <CheckBox layoutX="249.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Gatos" textFill="#00b4ff">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></CheckBox>
+                  <Label layoutX="138.0" layoutY="219.0" text="Meu Carrinho" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="277.0" prefWidth="333.0">

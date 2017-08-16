@@ -43,7 +43,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 			//então salva
 			em.persist(itemP);
 		} else {
-			List<ItemProdutoEntity> listaP = this.consultarItem_produto(itemP.getIdPed());
+			List<ItemProdutoEntity> listaP = this.consultarItemProduto(itemP.getIdPed());
 			int i = 0;
 			for(ItemProdutoEntity ip : listaP) {
 				if(ip.getCodProd() == itemP.getCodProd()) {
@@ -82,7 +82,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 		em.getTransaction().begin();
 		
 		//consultar BD
-		List<ItemProdutoEntity> listaP = this.consultarItem_produto(id);
+		List<ItemProdutoEntity> listaP = this.consultarItemProduto(id);
 		
 		for(ItemProdutoEntity ip : listaP) {
 			if(ip.getCodProd() == codigo) {
@@ -97,7 +97,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 	
 	//consultar do BD
 	public List<ItemProdutoEntity> consultarItemProduto(int id) {
-		List<ItemProdutoEntity> listaI = this.listarItem_produto();
+		List<ItemProdutoEntity> listaI = this.listarItemProduto();
 		List<ItemProdutoEntity> itemP = new ArrayList<ItemProdutoEntity>();
 		
 		for(ItemProdutoEntity ip : listaI) {

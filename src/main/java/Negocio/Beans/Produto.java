@@ -15,6 +15,13 @@ public class Produto {
 		this.preco = preco;
 		this.flag = flag;
 	}
+	
+	public Produto(String nome, float preco, String codigo, String informacoes) {
+		this.codigo = codigo;
+		this.informacoes = informacoes;
+		this.nome = nome;
+		this.preco = preco;
+	}
 
 	public String getNome() {
 		return nome;

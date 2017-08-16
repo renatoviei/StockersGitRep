@@ -63,7 +63,7 @@ CREATE TABLE ITEM_PRODUTO(
 	idPed int(11),
     codigoProd varchar(30),
     quantidade int(11) not null,
-    primary key (id,codigoProd),
-    constraint FK_ITEMP_PED foreign key (id) references PEDIDOS(id),
+    primary key (idPed,codigoProd),
+    constraint FK_ITEMP_PED foreign key (idPed) references PEDIDO(id),
     constraint FK_ITEMP_PROD foreign key (codigoProd) references PRODUTO(codigo)
 );
