@@ -2,6 +2,7 @@ package GUI;
 
 import java.io.IOException;
 
+import Negocio.Beans.AdmEntity;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,11 @@ public class TelaMenuAdm extends Application {
 
 	private Stage primaryStage;
 	private AnchorPane mainLayout;
+	private AdmEntity mestre;
+	
+	public TelaMenuAdm(AdmEntity adm) {
+		this.mestre = adm;
+	}
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {

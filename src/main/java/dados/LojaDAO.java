@@ -139,6 +139,11 @@ public class LojaDAO implements ILojaDAO {
 			loja = new LojaEntity();
 			loja.setEmail("vazio");
 			loja.setSenha("vazio");
+		} else {
+			if (!loja.getSenha().equals(senha)) {
+				loja.setEmail("vazio");
+				loja.setSenha("vazio");
+			}
 		}
 		
 		em.close();

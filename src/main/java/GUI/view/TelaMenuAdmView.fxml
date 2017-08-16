@@ -13,7 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TratadorEventoTelaMenuAdm">
 	<children>
 		<TabPane layoutX="4.0" layoutY="25.0" prefHeight="701.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
 			<tabs>
@@ -26,24 +26,24 @@
                               <Image url="https://s-media-cache-ak0.pinimg.com/originals/d6/e4/d5/d6e4d5ba43675474e1fc67ad57556b9e.jpg" />
                            </image>
                         </ImageView>
-								<TextField layoutX="79.0" layoutY="80.0" promptText="Nome da Loja">
+								<TextField fx:id="nomeLoja" layoutX="79.0" layoutY="80.0" promptText="Nome da Loja">
 									<cursor>
 										<Cursor fx:constant="TEXT" />
 									</cursor>
 								</TextField>
-								<Button layoutX="120.0" layoutY="150.0" mnemonicParsing="false" text="Pesquisar">
+								<Button fx:id="pesquisarLoja" layoutX="120.0" layoutY="150.0" mnemonicParsing="false" text="Pesquisar">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
-								<ListView layoutX="320.0" prefHeight="666.0" prefWidth="955.0" />
-								<Button layoutX="107.0" layoutY="200.0" mnemonicParsing="false" text="Mostrar Todos">
+								<ListView fx:id="lojas" layoutX="320.0" prefHeight="666.0" prefWidth="955.0" />
+								<Button fx:id="todasLojas" layoutX="107.0" layoutY="200.0" mnemonicParsing="false" text="Mostrar Todos">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
 								<Button layoutX="108.0" layoutY="550.0" mnemonicParsing="false" text="Cadastrar Loja" />
-                        <Button layoutX="110.0" layoutY="480.0" mnemonicParsing="false" text="Remover Loja" />
+                        <Button fx:id="removerLoja" layoutX="110.0" layoutY="480.0" mnemonicParsing="false" text="Remover Loja" />
 							</children>
 						</AnchorPane>
 					</content>
@@ -57,24 +57,24 @@
                               <Image url="https://s-media-cache-ak0.pinimg.com/originals/d6/e4/d5/d6e4d5ba43675474e1fc67ad57556b9e.jpg" />
                            </image>
                         </ImageView>
-								<TextField layoutX="80.0" layoutY="80.0" promptText="Nome do Produto">
+								<TextField fx:id="nomeProduto" layoutX="80.0" layoutY="80.0" promptText="Nome do Produto">
 									<cursor>
 										<Cursor fx:constant="TEXT" />
 									</cursor>
 								</TextField>
-								<Button layoutX="121.0" layoutY="150.0" mnemonicParsing="false" text="Pesquisar">
+								<Button fx:id="pesquisarProduto" layoutX="121.0" layoutY="150.0" mnemonicParsing="false" text="Pesquisar">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
-								<Button layoutX="107.0" layoutY="200.0" mnemonicParsing="false" text="Mostrar Todos">
+								<Button fx:id="todosProdutos" layoutX="107.0" layoutY="200.0" mnemonicParsing="false" text="Mostrar Todos">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
-								<Button layoutX="98.0" layoutY="550.0" mnemonicParsing="false" text="Cadastrar Produto" />
-								<ListView layoutX="320.0" prefHeight="666.0" prefWidth="955.0" />
-                        <Button layoutX="99.0" layoutY="480.0" mnemonicParsing="false" text="Remover Produto" />
+								<Button fx:id="cadastrarProduto" layoutX="98.0" layoutY="550.0" mnemonicParsing="false" text="Cadastrar Produto" />
+								<ListView fx:id="produtos" layoutX="320.0" prefHeight="666.0" prefWidth="955.0" />
+                        <Button fx:id="removerProduto" layoutX="99.0" layoutY="480.0" mnemonicParsing="false" text="Remover Produto" />
 							</children>
 						</AnchorPane>
 					</content>
@@ -88,23 +88,23 @@
                               <Image url="https://s-media-cache-ak0.pinimg.com/originals/d6/e4/d5/d6e4d5ba43675474e1fc67ad57556b9e.jpg" />
                            </image>
                         </ImageView>
-								<TextField layoutX="80.0" layoutY="80.0" promptText="Pedido">
+								<TextField fx:id="idPedido" layoutX="80.0" layoutY="80.0" promptText="Pedido">
 									<cursor>
 										<Cursor fx:constant="TEXT" />
 									</cursor>
 								</TextField>
-								<Button layoutX="121.0" layoutY="150.0" mnemonicParsing="false" text="Pesquisar">
+								<Button fx:id="pesquisarPedido" layoutX="121.0" layoutY="150.0" mnemonicParsing="false" text="Pesquisar">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
-								<ListView layoutX="320.0" prefHeight="666.0" prefWidth="955.0" />
-								<Button layoutX="107.0" layoutY="200.0" mnemonicParsing="false" text="Mostrar Todos">
+								<ListView fx:id="pedidos" layoutX="320.0" prefHeight="666.0" prefWidth="955.0" />
+								<Button fx:id="todosPedidos" layoutX="107.0" layoutY="200.0" mnemonicParsing="false" text="Mostrar Todos">
 									<cursor>
 										<Cursor fx:constant="HAND" />
 									</cursor>
 								</Button>
-                        <Button layoutX="102.0" layoutY="480.0" mnemonicParsing="false" text="Remover Pedido">
+                        <Button fx:id="removerPedido" layoutX="102.0" layoutY="480.0" mnemonicParsing="false" text="Remover Pedido">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

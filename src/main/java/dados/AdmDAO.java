@@ -24,7 +24,7 @@ public class AdmDAO implements IAdmDAO {
 	}
 	
 	public EntityManager getEM(){
-		emf = Persistence.createEntityManagerFactory("Stockers");
+		emf = Persistence.createEntityManagerFactory("stockers");
 		em = emf.createEntityManager();
 		//emf.close();
 		return em;
@@ -34,12 +34,20 @@ public class AdmDAO implements IAdmDAO {
 	//consultar do BD
 	public AdmEntity efetuarLogin(String login, String senha) {
 		EntityManager em = getEM();
-		AdmEntity adm = null;
+		AdmEntity adm;
 		
 		adm = em.find(AdmEntity.class, login);
 		
-		if(!adm.getSenha().equals(senha))
-			adm = null;
+		if(adm == null) {
+			adm = new AdmEntity();
+			adm.setLogin("vazio");
+			adm.setSenha("vazio");
+		} else {
+			if (!adm.getSenha().equals(senha)) {
+				adm.setLogin("vazio");
+				adm.setSenha("vazio");
+			}
+		}
 		
 		em.close();
 		emf.close();
