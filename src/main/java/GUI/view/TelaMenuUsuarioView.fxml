@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TratadorEventoTelaMenuUsuario">
    <children>
       <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="1280.0">
         <menus>
@@ -48,15 +48,15 @@
                   </ImageView>
                   <Pane layoutX="-6.0" layoutY="156.0" prefHeight="25.0" prefWidth="1286.0" style="-fx-background-color: gray;" />
                   <Pane layoutY="216.0" prefHeight="305.0" prefWidth="1286.0" style="-fx-background-color: gray;" />
-                  <Button layoutX="118.0" layoutY="94.0" mnemonicParsing="false" text="Pesquisar Produto" />
-                  <TextField layoutX="100.0" layoutY="43.0" promptText="Nome do Produto" />
-                  <ListView layoutX="16.0" layoutY="243.0" prefHeight="273.0" prefWidth="318.0" />
-                  <Button layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Confirmar Pedido" />
-                  <CheckBox layoutX="43.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Cachorros" textFill="RED">
+                  <Button fx:id="pesquisarProd" layoutX="118.0" layoutY="94.0" mnemonicParsing="false" text="Pesquisar Produto" />
+                  <TextField fx:id="nomeProduto" layoutX="100.0" layoutY="43.0" promptText="Nome do Produto" />
+                  <ListView fx:id="listaCarrinho" layoutX="16.0" layoutY="243.0" prefHeight="273.0" prefWidth="318.0" />
+                  <Button fx:id="ConfPedido" layoutX="133.0" layoutY="578.0" mnemonicParsing="false" text="Confirmar Pedido" />
+                  <CheckBox fx:id="ckboxCachorros" layoutX="43.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Cachorros" textFill="RED">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></CheckBox>
-                  <CheckBox layoutX="249.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Gatos" textFill="#00b4ff">
+                  <CheckBox fx:id="ckboxGatos" layoutX="249.0" layoutY="159.0" mnemonicParsing="false" selected="true" text="Gatos" textFill="#00b4ff">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></CheckBox>
@@ -74,7 +74,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="672.0" prefWidth="923.0" />
+                                    <ListView fx:id="listColeiras" layoutY="5.0" prefHeight="672.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -83,7 +83,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="662.0" prefWidth="923.0" />
+                                    <ListView fx:id="listRoupas" layoutY="5.0" prefHeight="662.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -92,7 +92,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="664.0" prefWidth="923.0" />
+                                    <ListView fx:id="listAcessorios" layoutY="5.0" prefHeight="664.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -101,7 +101,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="663.0" prefWidth="923.0" />
+                                    <ListView fx:id="listMedicamentos" layoutY="5.0" prefHeight="663.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -110,7 +110,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="664.0" prefWidth="923.0" />
+                                    <ListView fx:id="listHigiene" layoutY="5.0" prefHeight="664.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -119,7 +119,7 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView layoutY="5.0" prefHeight="663.0" prefWidth="923.0" />
+                                    <ListView fx:id="listAlimenticios" layoutY="5.0" prefHeight="663.0" prefWidth="923.0" />
                                  </children>
                               </AnchorPane>
                           </content>

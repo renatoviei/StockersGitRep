@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -49,6 +50,7 @@ public class TratadorEventoTelaLogin {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				((Node)(event.getSource())).getScene().getWindow().hide();
 			}
 			
 		});
