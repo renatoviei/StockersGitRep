@@ -34,10 +34,12 @@ public class LojaDAO implements ILojaDAO {
 	}
 	
 	//salvar no BD
-	public void cadastrarLoja(LojaEntity loja) {
+	public boolean cadastrarLoja(LojaEntity loja) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
+		
+		boolean retorno = false;
 		
 		LojaEntity sloja = em.find(LojaEntity.class, loja.getEmail()); 
 		
@@ -46,6 +48,7 @@ public class LojaDAO implements ILojaDAO {
 		if(sloja == null) {
 			//então salva
 			em.persist(loja);
+			retorno = true;
 		} else {	//atualiza
 			System.out.println("Lancar excecao de email ja existente!");
 		}
@@ -53,6 +56,7 @@ public class LojaDAO implements ILojaDAO {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
+		return retorno;
 	}
 	
 	//atualizar no BD

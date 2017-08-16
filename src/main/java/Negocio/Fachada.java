@@ -35,8 +35,8 @@ public class Fachada implements IFachada {
 		return iadm.efetuarLoginAdm(login, senha);
 	}
 	
-	public void cadastrarLoja(LojaEntity loja) {
-		iloja.cadastrarLoja(loja);
+	public boolean cadastrarLoja(LojaEntity loja) {
+		return iloja.cadastrarLoja(loja);
 	}
 	public LojaEntity editarLoja(LojaEntity loja) {
 		return iloja.editarLoja(loja);
@@ -54,8 +54,8 @@ public class Fachada implements IFachada {
 		return iloja.efetuarLoginLoja(email, senha);
 	}
 	
-	public void cadastrarProduto(ProdutoEntity produto) {
-		iproduto.cadastrarProduto(produto);
+	public boolean cadastrarProduto(ProdutoEntity produto) {
+		return iproduto.cadastrarProduto(produto);
 	}
 	public ProdutoEntity editarProduto(ProdutoEntity produto) {
 		return iproduto.editarProduto(produto);
@@ -70,8 +70,8 @@ public class Fachada implements IFachada {
 		return iproduto.listarProduto();
 	}
 	
-	public void cadastrarPedido(PedidoEntity pedido) {
-		ipedido.cadastrarPedido(pedido);
+	public boolean cadastrarPedido(PedidoEntity pedido) {
+		return ipedido.cadastrarPedido(pedido);
 	}
 	public PedidoEntity editarPedido(PedidoEntity pedido) {
 		return ipedido.editarPedido(pedido);
@@ -83,8 +83,8 @@ public class Fachada implements IFachada {
 		return ipedido.listarPedido();
 	}
 	
-	public void cadastrarItemProduto(ItemProdutoEntity itemP) {
-		iitemP.cadastrarItemProduto(itemP);
+	public boolean cadastrarItemProduto(ItemProdutoEntity itemP) {
+		return iitemP.cadastrarItemProduto(itemP);
 	}
 	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP) {
 		return iitemP.editarItemProduto(itemP);

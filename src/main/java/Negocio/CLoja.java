@@ -23,8 +23,8 @@ public class CLoja implements ICLoja {
 		return instance;
 	}
 	
-	public void cadastrarLoja(LojaEntity loja) {
-		iloja.cadastrarLoja(loja);
+	public boolean cadastrarLoja(LojaEntity loja) {
+		return iloja.cadastrarLoja(loja);
 	}
 	
 	public LojaEntity editarLoja(LojaEntity loja) {

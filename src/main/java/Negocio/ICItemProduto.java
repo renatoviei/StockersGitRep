@@ -6,7 +6,7 @@ import Negocio.Beans.ItemProdutoEntity;
 
 public interface ICItemProduto {
 	
-	public void cadastrarItemProduto(ItemProdutoEntity itemP);
+	public boolean cadastrarItemProduto(ItemProdutoEntity itemP);
 	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP);
 	public void apagarItemProduto(int id, String codigo);
 	public List<ItemProdutoEntity> consultarItemProduto(int id);

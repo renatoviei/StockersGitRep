@@ -33,10 +33,12 @@ public class PedidoDAO implements IPedidoDAO {
 		return em;
 	}
 	
-	public void cadastrarPedido(PedidoEntity pedido) {
+	public boolean cadastrarPedido(PedidoEntity pedido) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
+		
+		boolean retorno = false;
 		
 		//verifica se ainda não está no banco?
 		PedidoEntity spedido = em.find(PedidoEntity.class, pedido.getId());
@@ -44,6 +46,7 @@ public class PedidoDAO implements IPedidoDAO {
 		if(spedido == null) {
 			//então salva
 			em.persist(pedido);
+			retorno = true;
 		} else {
 			System.out.println("Lancar excecao de pedido ja existente!");
 		}
@@ -51,6 +54,7 @@ public class PedidoDAO implements IPedidoDAO {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
+		return retorno;
 	}
 	
 	public PedidoEntity editarPedido(PedidoEntity pedido) {

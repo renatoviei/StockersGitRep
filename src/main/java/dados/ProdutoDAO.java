@@ -33,10 +33,12 @@ public class ProdutoDAO implements IProdutoDAO {
 		return em;
 	}
 	
-	public void cadastrarProduto(ProdutoEntity produto) {
+	public boolean cadastrarProduto(ProdutoEntity produto) {
 		EntityManager em = getEM();
 		
 		em.getTransaction().begin();
+		
+		boolean retorno = false;
 		
 		//verifica se ainda não está no banco?
 		ProdutoEntity sproduto = em.find(ProdutoEntity.class, produto.getCodigo());
@@ -44,6 +46,7 @@ public class ProdutoDAO implements IProdutoDAO {
 		if(sproduto == null) {
 			//então salva
 			em.persist(produto);
+			retorno = true;
 		} else {
 			System.out.println("Lancar excecao de produto ja existente!");
 		}
@@ -51,6 +54,7 @@ public class ProdutoDAO implements IProdutoDAO {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
+		return retorno;
 	}
 	
 	public ProdutoEntity editarProduto(ProdutoEntity produto) {

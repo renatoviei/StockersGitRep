@@ -21,8 +21,8 @@ public class CItemProduto implements ICItemProduto {
 		return instance;
 	}
 	
-	public void cadastrarItemProduto(ItemProdutoEntity itemP) {
-		iitemP.cadastrarItemProduto(itemP);
+	public boolean cadastrarItemProduto(ItemProdutoEntity itemP) {
+		return iitemP.cadastrarItemProduto(itemP);
 	}
 	
 	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP) {

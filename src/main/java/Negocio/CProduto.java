@@ -21,8 +21,8 @@ public class CProduto implements ICProduto {
 		return instance;
 	}
 	
-	public void cadastrarProduto(ProdutoEntity produto) {
-		iproduto.cadastrarProduto(produto);
+	public boolean cadastrarProduto(ProdutoEntity produto) {
+		return iproduto.cadastrarProduto(produto);
 	}
 	
 	public ProdutoEntity editarProduto(ProdutoEntity produto) {

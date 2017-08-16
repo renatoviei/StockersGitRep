@@ -21,8 +21,8 @@ public class CPedido implements ICPedido {
 		return instance;
 	}
 	
-	public void cadastrarPedido(PedidoEntity pedido) {
-		ipedido.cadastrarPedido(pedido);
+	public boolean cadastrarPedido(PedidoEntity pedido) {
+		return ipedido.cadastrarPedido(pedido);
 	}
 	
 	public PedidoEntity editarPedido(PedidoEntity pedido) {

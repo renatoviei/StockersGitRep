@@ -6,7 +6,7 @@ import Negocio.Beans.LojaEntity;
 
 public interface ILojaDAO {
 	
-	public void cadastrarLoja(LojaEntity loja);
+	public boolean cadastrarLoja(LojaEntity loja);
 	public LojaEntity editarLoja(LojaEntity loja);
 	public void apagarLoja(String email);
 	public LojaEntity consultarLoja(String nome);

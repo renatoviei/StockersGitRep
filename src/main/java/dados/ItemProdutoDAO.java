@@ -34,9 +34,11 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 		return em;
 	}
 	
-	public void cadastrarItemProduto(ItemProdutoEntity itemP) {
+	public boolean cadastrarItemProduto(ItemProdutoEntity itemP) {
 		EntityManager em = getEM();
 		em.getTransaction().begin();
+		
+		boolean retorno = false;
 		
 		//verifica se ainda não está no banco?
 		ItemProdutoEntity sitemP = em.find(ItemProdutoEntity.class, itemP.getIdPed());
@@ -44,6 +46,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 		if(sitemP == null) {
 			//então salva
 			em.persist(itemP);
+			retorno = true;
 		} else {
 			List<ItemProdutoEntity> listaP = this.consultarItemProduto(itemP.getIdPed());
 			int i = 0;
@@ -54,6 +57,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 			}
 			if(i == 0) {
 				em.persist(itemP);
+				retorno = true;
 			} else {
 				System.out.println("Lancar excecao de produto ja existente no pedido");
 			}
@@ -62,6 +66,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 		em.getTransaction().commit();
 		em.close();
 		emf.close();
+		return retorno;
 	}
 	
 	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP) {
