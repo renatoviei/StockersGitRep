@@ -46,7 +46,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 			List<ItemProdutoEntity> listaP = this.consultarItemProduto(itemP.getIdPed());
 			int i = 0;
 			for(ItemProdutoEntity ip : listaP) {
-				if(ip.getCodProd() == itemP.getCodProd()) {
+				if(ip.getCodProd().equals(itemP.getCodProd())) {
 					i = 1;
 				}
 			}
@@ -85,7 +85,7 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 		List<ItemProdutoEntity> listaP = this.consultarItemProduto(id);
 		
 		for(ItemProdutoEntity ip : listaP) {
-			if(ip.getCodProd() == codigo) {
+			if(ip.getCodProd().equals(codigo)) {
 				em.remove(ip);
 			}
 		}
@@ -113,7 +113,8 @@ public class ItemProdutoDAO implements IItemProdutoDAO {
 		EntityManager em = getEM();
 		List<ItemProdutoEntity> listaI;
 		
-		String queryStr = "select * from stockers.item_produto"; //The query now changed to database independent
+		String queryStr = "SELECT ij FROM ItemProdutoEntity ij"; //The query now changed to database independent
+		
 		Query query = em.createQuery(queryStr);
 		listaI = query.getResultList();
 		

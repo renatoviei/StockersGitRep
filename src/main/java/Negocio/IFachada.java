@@ -5,7 +5,6 @@ import java.util.List;
 import dados.AdmEntity;
 import dados.ItemProdutoEntity;
 import dados.LojaEntity;
-import dados.PagamentoEntity;
 import dados.PedidoEntity;
 import dados.ProdutoEntity;
 
@@ -30,10 +29,6 @@ public interface IFachada {
 	public PedidoEntity editarPedido(PedidoEntity pedido);
 	public PedidoEntity consultarPedido(int id);
 	public List<PedidoEntity> listarPedido();
-	
-	public void cadastrarPagamento(PagamentoEntity pagamento);
-	public PagamentoEntity editarPagamento(PagamentoEntity pagamento);
-	public PagamentoEntity consultarPagamento(String codigo);
 	
 	public void cadastrarItemProduto(ItemProdutoEntity itemP);
 	public ItemProdutoEntity editarItemProduto(ItemProdutoEntity itemP);

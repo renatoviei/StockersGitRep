@@ -36,7 +36,7 @@ public class AdmDAO implements IAdmDAO {
 		
 		adm = em.find(AdmEntity.class, login);
 		
-		if(adm.getSenha() != senha)
+		if(!adm.getSenha().equals(senha))
 			adm = null;
 		
 		em.close();

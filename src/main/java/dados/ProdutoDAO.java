@@ -25,7 +25,7 @@ public class ProdutoDAO implements IProdutoDAO {
 	}
 	
 	public EntityManager getEM(){
-		emf = Persistence.createEntityManagerFactory("Stockers");
+		emf = Persistence.createEntityManagerFactory("stockers");
 		em = emf.createEntityManager();
 		//emf.close();
 		return em;
@@ -85,7 +85,7 @@ public class ProdutoDAO implements IProdutoDAO {
 		ProdutoEntity produto = null;
 		
 		for(ProdutoEntity p : listaP) {
-			if(p.getNome() == nome) {
+			if(p.getNome().equals(nome)) {
 				produto = p;
 			}
 		}
@@ -98,7 +98,8 @@ public class ProdutoDAO implements IProdutoDAO {
 		
 		List<ProdutoEntity> listaP;
 		
-		String queryStr = "select * from stockers.produto"; //The query now changed to database independent
+		String queryStr = "SELECT pj FROM ProdutoEntity pj"; //The query now changed to database independent
+		
 		Query query = em.createQuery(queryStr);
 		listaP = query.getResultList();
 		

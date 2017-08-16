@@ -5,7 +5,6 @@ import java.util.List;
 import dados.AdmEntity;
 import dados.ItemProdutoEntity;
 import dados.LojaEntity;
-import dados.PagamentoEntity;
 import dados.PedidoEntity;
 import dados.ProdutoEntity;
 
@@ -15,7 +14,6 @@ public class Fachada implements IFachada {
 	private ICLoja iloja;
 	private ICProduto iproduto;
 	private ICPedido ipedido;
-	private ICPagamento ipagamento;
 	private ICItemProduto iitemP;
 	
 	private Fachada() {
@@ -23,7 +21,6 @@ public class Fachada implements IFachada {
 		this.iloja = CLoja.getInstance();
 		this.iproduto = CProduto.getInstance();
 		this.ipedido = CPedido.getInstance();
-		this.ipagamento = CPagamento.getInstance();
 		this.iitemP = CItemProduto.getInstance();
 	}
 	
@@ -84,16 +81,6 @@ public class Fachada implements IFachada {
 	}
 	public List<PedidoEntity> listarPedido() {
 		return ipedido.listarPedido();
-	}
-	
-	public void cadastrarPagamento(PagamentoEntity pagamento) {
-		ipagamento.cadastrarPagamento(pagamento);
-	}
-	public PagamentoEntity editarPagamento(PagamentoEntity pagamento) {
-		return ipagamento.editarPagamento(pagamento);
-	}
-	public PagamentoEntity consultarPagamento(String codigo) {
-		return ipagamento.consultarPagamento(codigo);
 	}
 	
 	public void cadastrarItemProduto(ItemProdutoEntity itemP) {

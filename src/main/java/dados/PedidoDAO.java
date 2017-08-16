@@ -96,7 +96,8 @@ public class PedidoDAO implements IPedidoDAO {
 		
 		List<PedidoEntity> listaP;
 		
-		String queryStr = "select * from stockers.pedido"; //The query now changed to database independent
+		String queryStr = "SELECT pj FROM PedidoEntity pj"; //The query now changed to database independent
+		
 		Query query = em.createQuery(queryStr);
 		listaP = query.getResultList();
 		

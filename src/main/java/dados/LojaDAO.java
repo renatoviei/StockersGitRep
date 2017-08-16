@@ -96,8 +96,7 @@ public class LojaDAO implements ILojaDAO {
 		List<LojaEntity> listaL = this.listarLoja();
 		LojaEntity loja = null;
 		
-		for(int i = 0; i< listaL.size(); i++) {
-			LojaEntity l = listaL.get(i);
+		for(LojaEntity l : listaL) {
 			if(l.getNomeEmpresa().equals(nome))
 				loja = l;
 		}
@@ -130,7 +129,7 @@ public class LojaDAO implements ILojaDAO {
 		
 		loja = em.find(LojaEntity.class, email);
 		
-		if(loja.getSenha() != senha)
+		if(!loja.getSenha().equals(senha))
 			loja = null;
 		
 		em.close();
