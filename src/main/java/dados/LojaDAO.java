@@ -96,8 +96,9 @@ public class LojaDAO implements ILojaDAO {
 		List<LojaEntity> listaL = this.listarLoja();
 		LojaEntity loja = null;
 		
-		for(LojaEntity l : listaL) {
-			if(l.getNomeEmpresa() == nome)
+		for(int i = 0; i< listaL.size(); i++) {
+			LojaEntity l = listaL.get(i);
+			if(l.getNomeEmpresa().equals(nome))
 				loja = l;
 		}
 		
@@ -110,7 +111,7 @@ public class LojaDAO implements ILojaDAO {
 				
 		List<LojaEntity> listaL;
 		
-		String queryStr = "select * from stockers.loja"; //The query now changed to database independent
+		String queryStr = "SELECT lj FROM LojaEntity lj"; //The query now changed to database independent
 		Query query = em.createQuery(queryStr);
 		listaL = query.getResultList();
 		
