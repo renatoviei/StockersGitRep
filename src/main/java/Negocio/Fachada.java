@@ -2,11 +2,11 @@ package Negocio;
 
 import java.util.List;
 
-import dados.AdmEntity;
-import dados.ItemProdutoEntity;
-import dados.LojaEntity;
-import dados.PedidoEntity;
-import dados.ProdutoEntity;
+import Negocio.Beans.AdmEntity;
+import Negocio.Beans.ItemProdutoEntity;
+import Negocio.Beans.LojaEntity;
+import Negocio.Beans.PedidoEntity;
+import Negocio.Beans.ProdutoEntity;
 
 public class Fachada implements IFachada {
 	private static Fachada instance;

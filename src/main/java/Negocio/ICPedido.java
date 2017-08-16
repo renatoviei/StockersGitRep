@@ -2,7 +2,7 @@ package Negocio;
 
 import java.util.List;
 
-import dados.PedidoEntity;
+import Negocio.Beans.PedidoEntity;
 
 public interface ICPedido {
 

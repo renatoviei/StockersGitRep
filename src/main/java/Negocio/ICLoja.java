@@ -2,7 +2,7 @@ package Negocio;
 
 import java.util.List;
 
-import dados.LojaEntity;
+import Negocio.Beans.LojaEntity;
 
 public interface ICLoja {
 

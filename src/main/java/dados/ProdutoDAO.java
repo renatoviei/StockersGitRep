@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import Negocio.Beans.ProdutoEntity;
+
 public class ProdutoDAO implements IProdutoDAO {
 	private static ProdutoDAO instance;
 	

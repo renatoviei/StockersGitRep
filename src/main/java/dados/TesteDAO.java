@@ -1,5 +1,7 @@
 package dados;
 
+import Negocio.Beans.LojaEntity;
+
 public class TesteDAO {
 	
 public static void main(String [] args) {
@@ -8,38 +10,25 @@ public static void main(String [] args) {
 		LojaDAO ldao = LojaDAO.getInstanceLoja();
 		
 		//exemplo criando loja
-		/*le.setEmail("epsilon@testando.com");
-		le.setLojaNomeEmpresa("teste co");
-		le.setCep("50000000");
-		le.setCidade("raincife");
-		le.setCnpj("333eee");
-		le.setEstado("morto");
-		le.setNomeResponsavel("relampago marquinhos");
-		le.setPais("hasil");
-		le.setRazaoSocial("sei n");
-		le.setRua("no meio do nada");
-		le.setSenha("123");
-		le.setTelefoneEmpresa(12345678);
 		
-		ldao.cadastrarLoja(le);
-		
-		le.setEmail("nada@testando.com");
-		le.setLojaNomeEmpresa("bug co");
-		le.setCep("11111111");
-		le.setCidade("raincife");
-		le.setCnpj("444eee");
-		le.setEstado("vivo");
-		le.setNomeResponsavel("kenichi");
-		le.setPais("manga");
-		le.setRazaoSocial("lutar");
-		le.setRua("ryouzanpaku");
+		/*le.setEmail("tudo@testando.com");
+		le.setLojaNomeEmpresa("Minha Empresa");
+		le.setCep("2222222");
+		le.setCidade("Sim Paulo");
+		le.setCnpj("555iii");
+		le.setEstado("PE");
+		le.setNomeResponsavel("ninguem");
+		le.setPais("japao");
+		le.setRazaoSocial("exterminio");
+		le.setRua("aquela");
 		le.setSenha("senha123");
-		le.setTelefoneEmpresa(87654321);
+		le.setTelefoneEmpresa(11223344);*/
 		
-		ldao.cadastrarLoja(le);*/
+		//ldao.cadastrarLoja(le);
 		
-		System.out.println(ldao.consultarLoja("bug co").getEmail());
-		System.out.println(ldao.consultarLoja("teste co").getEmail());
+		for(LojaEntity loja : ldao.listarLoja()) {
+			System.out.println(loja.getNomeEmpresa() + " pertence a " + loja.getNomeResponsavel());
+		}
 		
 		System.out.println("sucesso?");
 			

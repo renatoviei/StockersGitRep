@@ -1,6 +1,6 @@
 package Negocio;
 
-import dados.AdmEntity;
+import Negocio.Beans.AdmEntity;
 
 public interface ICAdm {
 	

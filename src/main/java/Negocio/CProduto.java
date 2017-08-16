@@ -2,9 +2,9 @@ package Negocio;
 
 import java.util.List;
 
+import Negocio.Beans.ProdutoEntity;
 import dados.IProdutoDAO;
 import dados.ProdutoDAO;
-import dados.ProdutoEntity;
 
 public class CProduto implements ICProduto {
 	private static CProduto instance;

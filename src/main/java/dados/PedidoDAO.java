@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import Negocio.Beans.PedidoEntity;
+
 public class PedidoDAO implements IPedidoDAO {
 	private static PedidoDAO instance;
 	

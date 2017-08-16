@@ -1,7 +1,7 @@
 package Negocio;
 
+import Negocio.Beans.AdmEntity;
 import dados.AdmDAO;
-import dados.AdmEntity;
 import dados.IAdmDAO;
 
 public class CAdm implements ICAdm {

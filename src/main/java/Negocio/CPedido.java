@@ -2,9 +2,9 @@ package Negocio;
 
 import java.util.List;
 
+import Negocio.Beans.PedidoEntity;
 import dados.IPedidoDAO;
 import dados.PedidoDAO;
-import dados.PedidoEntity;
 
 public class CPedido implements ICPedido {
 	private static CPedido instance;

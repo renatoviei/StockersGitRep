@@ -2,6 +2,8 @@ package dados;
 
 import java.util.List;
 
+import Negocio.Beans.ProdutoEntity;
+
 public interface IProdutoDAO {
 	
 	public void cadastrarProduto(ProdutoEntity produto);

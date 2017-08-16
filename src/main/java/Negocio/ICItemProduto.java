@@ -2,7 +2,7 @@ package Negocio;
 
 import java.util.List;
 
-import dados.ItemProdutoEntity;
+import Negocio.Beans.ItemProdutoEntity;
 
 public interface ICItemProduto {
 	

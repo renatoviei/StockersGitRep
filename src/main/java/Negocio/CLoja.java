@@ -2,10 +2,9 @@ package Negocio;
 
 import java.util.List;
 
-import Negocio.Beans.Loja;
+import Negocio.Beans.LojaEntity;
 import dados.ILojaDAO;
 import dados.LojaDAO;
-import dados.LojaEntity;
 
 
 public class CLoja implements ICLoja {

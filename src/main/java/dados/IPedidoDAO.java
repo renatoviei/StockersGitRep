@@ -2,6 +2,8 @@ package dados;
 
 import java.util.List;
 
+import Negocio.Beans.PedidoEntity;
+
 public interface IPedidoDAO {
 	
 	public void cadastrarPedido(PedidoEntity pedido);

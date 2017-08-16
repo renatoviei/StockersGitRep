@@ -1,4 +1,4 @@
-package dados;
+package Negocio.Beans;
 
 import java.io.Serializable;
 
