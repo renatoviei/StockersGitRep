@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="800.0">
          <image>
-            <Image url="@../../../../../Imagens/cachorro-e-gato-podem-viver-juntos.jpg" />
+            <Image url="https://s-media-cache-ak0.pinimg.com/originals/9c/61/16/9c61162542679184ad927d2aa845422b.jpg" />
          </image>
          <viewport>
             <Rectangle2D />
@@ -30,7 +30,7 @@
       <Label layoutX="521.0" layoutY="334.0" text="Não possui um cadastro?" />
       <ImageView fitHeight="119.0" fitWidth="119.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Imagens/Stockers.png" />
+            <Image url="https://i.pinimg.com/originals/35/5b/c6/355bc63459693347fe0d96273d8d6370.png" />
          </image>
       </ImageView>
    </children>

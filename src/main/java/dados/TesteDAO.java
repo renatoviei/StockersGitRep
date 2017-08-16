@@ -8,7 +8,7 @@ public static void main(String [] args) {
 		LojaDAO ldao = LojaDAO.getInstanceLoja();
 		
 		//exemplo criando loja
-		le.setEmail("epsilon@testando.com");
+		/*le.setEmail("epsilon@testando.com");
 		le.setLojaNomeEmpresa("teste co");
 		le.setCep("50000000");
 		le.setCidade("raincife");
@@ -36,7 +36,7 @@ public static void main(String [] args) {
 		le.setSenha("senha123");
 		le.setTelefoneEmpresa(87654321);
 		
-		ldao.cadastrarLoja(le);
+		ldao.cadastrarLoja(le);*/
 		
 		System.out.println(ldao.consultarLoja("bug co").getEmail());
 		System.out.println(ldao.consultarLoja("teste co").getEmail());

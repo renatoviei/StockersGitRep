@@ -110,7 +110,7 @@ public class LojaDAO implements ILojaDAO {
 				
 		List<LojaEntity> listaL;
 		
-		String queryStr = "select * from stockers.loja"; //The query now changed to database independent
+		String queryStr = "SELECT * FROM stockers.loja"; //The query now changed to database independent
 		Query query = em.createQuery(queryStr);
 		listaL = query.getResultList();
 		

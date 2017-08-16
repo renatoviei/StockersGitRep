@@ -16,7 +16,7 @@
 	<children>
       <ImageView fitHeight="228.0" fitWidth="304.0" layoutX="495.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Imagens/pLNP5zE.jpg" />
+            <Image url="https://i.pinimg.com/originals/30/78/6d/30786d26720772f7e9016c5de1d66252.jpg" />
          </image></ImageView>
 		<Button layoutX="327.0" layoutY="515.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="146.0" text="Confirmar" />
 		<TextField layoutX="101.0" layoutY="147.0" promptText="nome" />
@@ -33,7 +33,7 @@
 		</Label>
       <ImageView fitHeight="119.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Imagens/Stockers.png" />
+            <Image url="https://i.pinimg.com/originals/35/5b/c6/355bc63459693347fe0d96273d8d6370.png" />
          </image>
       </ImageView>
       <TextField layoutX="555.0" layoutY="147.0" promptText="código" />
