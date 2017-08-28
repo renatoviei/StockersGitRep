@@ -36,8 +36,8 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 	ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
 
 	JLabel label = new JLabel(imagem);
+	private final JButton btnNewButton = new JButton("Pedidos");
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoConfirma) {
 
@@ -48,7 +48,7 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 				try {
 					ProdutoEntity produto = new ProdutoEntity();
 					produto.setNome(caixaNome.getText());
-					produto.setPreco(Integer.parseInt(caixaPreco.getText()));
+					produto.setPreco(Float.parseFloat(caixaPreco.getText()));
 					produto.setCodigo(caixaCodigo.getText());
 					produto.setTipo(caixaCategoria.getText());
 					produto.setInformacoes(caixaInformacoes.getText());
@@ -88,6 +88,7 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 	}
 
 	public TelaEspacoAdm() {
+		setTitle("Cadastro Produto");
 
 		botaoConfirma.addActionListener(this);
 		botaoSair.addActionListener(this);
@@ -100,12 +101,20 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 		setResizable(false);
 
 		JPanel painelPrincipal = new JPanel();
+		painelPrincipal.setToolTipText("Espa\u00E7o Adm");
 
-		add(painelPrincipal);
+		getContentPane().add(painelPrincipal);
 
 		painelPrincipal.setLayout(null);
 
 		Font grande = new Font("Serif", Font.BOLD, 12);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(20, 231, 100, 23);
+
+		painelPrincipal.add(btnNewButton);
 
 		JLabel nome = new JLabel("Digite o nome: ");
 		nome.setFont(grande);

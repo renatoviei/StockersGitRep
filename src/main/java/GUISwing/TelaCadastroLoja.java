@@ -45,7 +45,6 @@ public class TelaCadastroLoja extends JFrame implements ActionListener {
 	 JLabel label = new JLabel(imagem);
 
 	@SuppressWarnings("deprecation")
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoConfirma) {
 

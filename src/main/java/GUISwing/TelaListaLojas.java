@@ -37,8 +37,9 @@ public class TelaListaLojas extends JFrame implements ActionListener {
 	DefaultListModel modelo = new DefaultListModel();
 	private final JList list = new JList();
 	private final JScrollPane scrollPane = new JScrollPane();
+	protected DefaultListModel listaModel = new DefaultListModel();
+	Fachada fachada = Fachada.getInstance();
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoVolta) {
 
@@ -48,6 +49,11 @@ public class TelaListaLojas extends JFrame implements ActionListener {
 			espaco.setVisible(true);
 			dispose();
 
+		} else if (e.getSource().equals(botaoRemove)) {
+
+			if (list.getSelectedValue() != null) {
+				fachada.apagarLoja(fachada.consultarLoja(list.getSelectedValue().toString()).getEmail());
+			}
 		}
 
 	}
@@ -71,7 +77,7 @@ public class TelaListaLojas extends JFrame implements ActionListener {
 		painelPrincipal.setLayout(null);
 
 		Font grande = new Font("Serif", Font.ITALIC, 26);
-		Fachada fachada = Fachada.getInstance();
+		
 
 		list.setModel(new AbstractListModel() {
 

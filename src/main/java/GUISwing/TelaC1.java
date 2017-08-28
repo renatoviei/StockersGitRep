@@ -26,7 +26,6 @@ public class TelaC1 extends JFrame implements ActionListener {
 
 	JLabel label = new JLabel(imagem);
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoCAdm) {
 			TelaCadastroAdm telaCAdm = new TelaCadastroAdm();

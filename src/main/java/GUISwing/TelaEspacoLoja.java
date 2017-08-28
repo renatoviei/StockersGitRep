@@ -30,7 +30,6 @@ public class TelaEspacoLoja extends JFrame implements ActionListener {
 
 	JLabel label = new JLabel(imagem);
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoPesquisar && !caixaPesquisa.getText().equals("")) {
 			String aux = caixaPesquisa.getText();

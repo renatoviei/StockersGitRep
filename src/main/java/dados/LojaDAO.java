@@ -148,7 +148,11 @@ public class LojaDAO implements ILojaDAO {
 		
 		em.close();
 		emf.close();
-		return loja;
+		
+		if(loja.getSenha().equals(senha)) {
+			return loja;
+		}else
+			return null;
 	}
 	
 }

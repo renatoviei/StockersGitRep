@@ -42,8 +42,9 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 	DefaultListModel modelo = new DefaultListModel();
 	private final JList list = new JList();
 	private final JScrollPane scrollPane = new JScrollPane();
+	private final JButton btnRemover = new JButton("Remover");
+	Fachada fachada = Fachada.getInstance();
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoVolta) {
 
@@ -53,12 +54,17 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 			espaco.setVisible(true);
 			dispose();
 
+		} else if (e.getSource().equals(btnRemover)) {
+
+			if (list.getSelectedValue() != null) {
+				fachada.apagarLoja(fachada.consultarProduto(list.getSelectedValue().toString()).getCodigo());
+			}
 		}
 
 	}
 
 	@SuppressWarnings({})
-	public TelaPesquisarListarProduto(String aux) {
+	public TelaPesquisarListarProduto(final String aux) {
 		setAux(aux);
 
 		botaoVolta.addActionListener(this);
@@ -77,27 +83,25 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 		painelPrincipal.setLayout(null);
 
 		Font grande = new Font("Serif", Font.BOLD, 13);
-		Fachada fachada = Fachada.getInstance();
 
-		list.setModel(new AbstractListModel() {
+		
+		  list.setModel(new AbstractListModel() {
+		  
+		  private static final long serialVersionUID = 1L;
+		  
+		  List<ProdutoEntity> listaProdutos = fachada.listarProduto();
+		  
+		  public int getSize() { return listaProdutos.size(); }
+		  
+		  public Object getElementAt(int index) { if
+		  (listaProdutos.get(index).getNome().contains(aux)) { return
+		  listaProdutos.get(index).getNome(); } else return 0;
+		  
+		  } });
+		 
+		btnRemover.setBounds(351, 254, 89, 23);
 
-			private static final long serialVersionUID = 1L;
-
-			List<ProdutoEntity> listaProdutos = fachada.listarProduto();
-
-			public int getSize() {
-				return listaProdutos.size();
-			}
-
-			public Object getElementAt(int index) {
-				if (listaProdutos.get(index).equals(aux)) {
-					return listaProdutos.get(index);
-				} else
-					return 0;
-
-			}
-		});
-
+		painelPrincipal.add(btnRemover);
 		list.setBounds(300, 41, 184, 189);
 		painelPrincipal.add(list);
 		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -128,13 +132,13 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 		centavos.setBounds(new Rectangle(83, 75, 60, 17));
 		painelPrincipal.add(centavos);
 
-		label.setBounds(0, 0, 500, 400);
-
 		botaoAdc.setBounds(150, 320, 100, 20);
 		botaoVolta.setBounds(250, 320, 80, 20);
 
 		painelPrincipal.add(botaoAdc);
 		painelPrincipal.add(botaoVolta);
+
+		label.setBounds(0, 0, 500, 400);
 		painelPrincipal.add(label);
 	}
 

@@ -25,7 +25,6 @@ public class TelaMenuInicial extends JFrame implements ActionListener {
 
 	JLabel label = new JLabel(imagem);
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoSair) {
 			System.exit(0);

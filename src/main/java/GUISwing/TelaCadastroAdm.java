@@ -35,7 +35,6 @@ public class TelaCadastroAdm extends JFrame implements ActionListener {
 	 JLabel label = new JLabel(imagem);
 
 	@SuppressWarnings("deprecation")
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoConfirma) {
 			if (caixaLogin.getText().equals("") || caixaSenha.getText().equals("")) {

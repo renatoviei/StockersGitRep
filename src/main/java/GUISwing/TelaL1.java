@@ -25,7 +25,6 @@ public class TelaL1 extends JFrame implements ActionListener {
 
 	JLabel label = new JLabel(imagem);
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoLAdm) {
 			TelaLoginAdm loginAdm = new TelaLoginAdm();

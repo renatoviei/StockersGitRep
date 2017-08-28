@@ -32,7 +32,6 @@ public class TelaLoginLoja extends JFrame implements ActionListener {
 	JLabel label = new JLabel(imagem);
 
 	@SuppressWarnings("deprecation")
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoEntra) {
 			Fachada fachada = Fachada.getInstance();
