@@ -80,12 +80,12 @@ public class TelaListaLojas extends JFrame implements ActionListener {
 			List<LojaEntity> listaLojas = fachada.listarLoja();
 
 			public int getSize() {
-				return 0;
+				return listaLojas.size();
 			}
 
 			public Object getElementAt(int index) {
 
-				return listaLojas.get(index);
+				return listaLojas.get(index).getNomeEmpresa();
 
 			}
 		});

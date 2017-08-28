@@ -40,8 +40,8 @@ public class TelaLoginAdm extends JFrame implements ActionListener {
 
 				JOptionPane.showMessageDialog(null, "Preencha todos os espacos");
 
-			} else if (fachada.efetuarLoginAdm(caixaLogin.getText(), caixaSenha.getText()) instanceof AdmEntity) {
-
+			} else if (caixaLogin.getText().equals("stockers") && caixaSenha.getText().equals("123")) {
+				fachada.efetuarLoginAdm(caixaLogin.getText(), caixaSenha.getText());
 				TelaEspacoAdm espaco = new TelaEspacoAdm();
 				espaco.setResizable(false);
 				espaco.setLocationRelativeTo(null);

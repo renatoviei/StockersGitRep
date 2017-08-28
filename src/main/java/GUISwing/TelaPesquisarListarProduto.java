@@ -86,7 +86,7 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 			List<ProdutoEntity> listaProdutos = fachada.listarProduto();
 
 			public int getSize() {
-				return 0;
+				return listaProdutos.size();
 			}
 
 			public Object getElementAt(int index) {
