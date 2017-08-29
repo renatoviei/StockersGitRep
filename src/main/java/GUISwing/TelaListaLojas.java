@@ -77,25 +77,22 @@ public class TelaListaLojas extends JFrame implements ActionListener {
 		painelPrincipal.setLayout(null);
 
 		Font grande = new Font("Serif", Font.ITALIC, 26);
+
 		
-
-		list.setModel(new AbstractListModel() {
-
-			private static final long serialVersionUID = 1L;
-
-			List<LojaEntity> listaLojas = fachada.listarLoja();
-
-			public int getSize() {
-				return listaLojas.size();
-			}
-
-			public Object getElementAt(int index) {
-
-				return listaLojas.get(index).getNomeEmpresa();
-
-			}
-		});
-
+		  list.setModel(new AbstractListModel() {
+		 
+		  private static final long serialVersionUID = 1L;
+		  
+		  List<LojaEntity> listaLojas = fachada.listarLoja();
+		  
+		  public int getSize() { return listaLojas.size(); }
+		  
+		  public Object getElementAt(int index) {
+		  
+		  return listaLojas.get(index).getNomeEmpresa();
+		  
+		  } });
+		 
 		list.setBounds(300, 41, 184, 189);
 		painelPrincipal.add(list);
 		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -110,7 +107,7 @@ public class TelaListaLojas extends JFrame implements ActionListener {
 
 		label.setBounds(0, 0, 500, 400);
 
-		botaoRemove.setBounds(150, 320, 100, 20);
+		botaoRemove.setBounds(351, 254, 89, 23);
 		botaoVolta.setBounds(250, 320, 80, 20);
 
 		painelPrincipal.add(botaoRemove);

@@ -15,7 +15,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Negocio.Fachada;
-import Negocio.Beans.AdmEntity;
 
 public class TelaLoginAdm extends JFrame implements ActionListener {
 
@@ -48,7 +47,7 @@ public class TelaLoginAdm extends JFrame implements ActionListener {
 				dispose();
 
 			} else {
-				JOptionPane.showMessageDialog(null, "LOGIN NÃO REALIZADO. CONTA NAO EXISTE!");
+				JOptionPane.showMessageDialog(null, "LOGIN Nï¿½O REALIZADO. CONTA NAO EXISTE!");
 			}
 
 		} else {

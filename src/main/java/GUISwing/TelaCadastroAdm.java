@@ -30,16 +30,16 @@ public class TelaCadastroAdm extends JFrame implements ActionListener {
 	JButton botaoConfirma = new JButton("Cadastrar");
 	JButton botaoVolta = new JButton("Voltar");
 
-	 ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
+	ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
 
-	 JLabel label = new JLabel(imagem);
+	JLabel label = new JLabel(imagem);
 
 	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoConfirma) {
 			if (caixaLogin.getText().equals("") || caixaSenha.getText().equals("")) {
 				JOptionPane.showMessageDialog(null, "Preencha todos os campos");
-			} else {
+			} else if (caixaLogin.getText().equals("stockers") && caixaSenha.getText().equals("123")) {
 				AdmEntity adm = new AdmEntity();
 				adm.setLogin(caixaLogin.getText());
 				adm.setSenha(caixaSenha.getText());
@@ -52,7 +52,8 @@ public class TelaCadastroAdm extends JFrame implements ActionListener {
 				menuInicial.setVisible(true);
 				dispose();
 
-			}
+			} else
+				JOptionPane.showMessageDialog(null, "Administrador invalido");
 
 		} else {
 			TelaC1 telaC1 = new TelaC1();
@@ -106,7 +107,7 @@ public class TelaCadastroAdm extends JFrame implements ActionListener {
 
 		painelPrincipal.add(botaoConfirma);
 		painelPrincipal.add(botaoVolta);
-		 painelPrincipal.add(label);
+		painelPrincipal.add(label);
 	}
 
 	public static void main(String[] args) {

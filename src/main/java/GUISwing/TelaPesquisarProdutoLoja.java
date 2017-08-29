@@ -16,24 +16,23 @@ import javax.swing.JTextField;
 
 import Negocio.Fachada;
 import Negocio.Beans.ProdutoEntity;
-
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.AbstractListModel;
 
-public class TelaPesquisarListarProduto extends JFrame implements ActionListener {
+public class TelaPesquisarProdutoLoja extends JFrame implements ActionListener {
 
 	/**
 		 * 
 		 */
 	private static final long serialVersionUID = 1L;
 	private static String aux;
-	private JTextField caixaNome = new JTextField(50);
+	private JTextField caixaTipo = new JTextField(50);
 	private JTextField caixaPreco = new JTextField(50);
 
 	JButton botaoVolta = new JButton("Voltar");
-	JButton botaoAdc = new JButton("Adicionar");
+	JButton botaoPedido = new JButton("Pedir");
 	ImageIcon imagem = new ImageIcon(
 			getClass().getResource("depositphotos_46630039-stock-illustration-animal-seamless-vector-pattern-of.jpg"));
 
@@ -42,7 +41,7 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 	DefaultListModel modelo = new DefaultListModel();
 	private final JList list = new JList();
 	private final JScrollPane scrollPane = new JScrollPane();
-	private final JButton btnRemover = new JButton("Remover");
+
 	Fachada fachada = Fachada.getInstance();
 
 	public void actionPerformed(ActionEvent e) {
@@ -54,21 +53,27 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 			espaco.setVisible(true);
 			dispose();
 
-		} else if (e.getSource().equals(btnRemover)) {
+		} else if (list.getSelectedValue() != null) {
+			caixaTipo.setText(fachada.consultarProduto(list.getSelectedValue().toString()).getTipo());
+			caixaTipo.setEditable(false);
+			caixaPreco.setText(Float.toString(fachada.consultarProduto(list.getSelectedValue().toString()).getPreco()));
+			caixaPreco.setEditable(false);
 
-			if (list.getSelectedValue() != null) {
-				fachada.apagarLoja(fachada.consultarProduto(list.getSelectedValue().toString()).getCodigo());
-			}
+		} else if (e.getSource() == botaoPedido) {
+			TelaPedido pedido = new TelaPedido();
+			pedido.setResizable(false);
+			pedido.setLocationRelativeTo(null);
+			pedido.setVisible(true);
+			dispose();
 		}
-
 	}
 
 	@SuppressWarnings({})
-	public TelaPesquisarListarProduto(final String aux) {
+	public TelaPesquisarProdutoLoja(final String aux) {
 		setAux(aux);
 
 		botaoVolta.addActionListener(this);
-		botaoAdc.addActionListener(this);
+		botaoPedido.addActionListener(this);
 
 		setSize(500, 400);
 		setVisible(true);
@@ -84,24 +89,25 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 
 		Font grande = new Font("Serif", Font.BOLD, 13);
 
-		
-		  list.setModel(new AbstractListModel() {
-		  
-		  private static final long serialVersionUID = 1L;
-		  
-		  List<ProdutoEntity> listaProdutos = fachada.listarProduto();
-		  
-		  public int getSize() { return listaProdutos.size(); }
-		  
-		  public Object getElementAt(int index) { if
-		  (listaProdutos.get(index).getNome().contains(aux)) { return
-		  listaProdutos.get(index).getNome(); } else return 0;
-		  
-		  } });
-		 
-		btnRemover.setBounds(351, 254, 89, 23);
+		list.setModel(new AbstractListModel() {
 
-		painelPrincipal.add(btnRemover);
+			private static final long serialVersionUID = 1L;
+
+			List<ProdutoEntity> listaProdutos = fachada.listarProduto();
+
+			public int getSize() {
+				return listaProdutos.size();
+			}
+
+			public Object getElementAt(int index) {
+				if (listaProdutos.get(index).getNome().contains(aux)) {
+					return listaProdutos.get(index).getNome();
+				} else
+					return 0;
+
+			}
+		});
+
 		list.setBounds(300, 41, 184, 189);
 		painelPrincipal.add(list);
 		list.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -109,14 +115,14 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 
 		painelPrincipal.add(scrollPane);
 
-		JLabel nome = new JLabel("Nome do produto: ");
+		JLabel nome = new JLabel("Tipo do produto: ");
 		nome.setFont(grande);
 		nome.setBounds(new Rectangle(10, 13, 250, 17));
 		painelPrincipal.add(nome);
 
-		caixaNome.setBounds(new Rectangle(10, 33, 250, 17));
-		painelPrincipal.add(caixaNome);
-		caixaNome.setEditable(false);
+		caixaTipo.setBounds(new Rectangle(10, 33, 250, 17));
+		painelPrincipal.add(caixaTipo);
+		caixaTipo.setEditable(false);
 
 		caixaPreco.setBounds(new Rectangle(30, 75, 50, 17));
 		painelPrincipal.add(caixaPreco);
@@ -132,10 +138,10 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 		centavos.setBounds(new Rectangle(83, 75, 60, 17));
 		painelPrincipal.add(centavos);
 
-		botaoAdc.setBounds(150, 320, 100, 20);
+		botaoPedido.setBounds(150, 320, 100, 20);
 		botaoVolta.setBounds(250, 320, 80, 20);
 
-		painelPrincipal.add(botaoAdc);
+		painelPrincipal.add(botaoPedido);
 		painelPrincipal.add(botaoVolta);
 
 		label.setBounds(0, 0, 500, 400);
@@ -143,7 +149,7 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 	}
 
 	public static void main(String[] args) {
-		new TelaPesquisarListarProduto(aux);
+		new TelaPesquisarProdutoLoja(aux);
 	}
 
 	public String getAux() {
@@ -151,7 +157,7 @@ public class TelaPesquisarListarProduto extends JFrame implements ActionListener
 	}
 
 	public void setAux(String aux) {
-		TelaPesquisarListarProduto.aux = aux;
+		TelaPesquisarProdutoLoja.aux = aux;
 	}
 
 }

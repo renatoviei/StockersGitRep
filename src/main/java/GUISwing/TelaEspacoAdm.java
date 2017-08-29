@@ -31,12 +31,13 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 
 	JButton botaoConfirma = new JButton("Confirmar");
 	JButton botaoListarLojas = new JButton("Lojas");
+	JButton botaoProdutos = new JButton("Produtos");
 	JButton botaoSair = new JButton("Sair");
 
 	ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
 
 	JLabel label = new JLabel(imagem);
-	private final JButton btnNewButton = new JButton("Pedidos");
+	private final JButton botaoPedidos = new JButton("Pedidos");
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoConfirma) {
@@ -75,6 +76,18 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 			lojas.setVisible(true);
 			dispose();
 
+		} else if (e.getSource() == botaoPedidos) {
+			TelaListarPedidos pedidos = new TelaListarPedidos();
+			pedidos.setResizable(false);
+			pedidos.setLocationRelativeTo(null);
+			pedidos.setVisible(true);
+			dispose();
+
+		} else if (e.getSource() == botaoProdutos) {
+			TelaEspacoAdmPesquisar pedidos = new TelaEspacoAdmPesquisar();
+			pedidos.setLocationRelativeTo(null);
+			pedidos.setVisible(true);
+			dispose();
 		} else {
 
 			TelaLoginAdm telaLoginadm = new TelaLoginAdm();
@@ -93,6 +106,8 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 		botaoConfirma.addActionListener(this);
 		botaoSair.addActionListener(this);
 		botaoListarLojas.addActionListener(this);
+		botaoPedidos.addActionListener(this);
+		botaoProdutos.addActionListener(this);
 
 		setSize(500, 400);
 		setVisible(true);
@@ -108,13 +123,6 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 		painelPrincipal.setLayout(null);
 
 		Font grande = new Font("Serif", Font.BOLD, 12);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(20, 231, 100, 23);
-
-		painelPrincipal.add(btnNewButton);
 
 		JLabel nome = new JLabel("Digite o nome: ");
 		nome.setFont(grande);
@@ -125,7 +133,7 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 		caixaNome.setBounds(new Rectangle(115, 80, 330, 14));
 		painelPrincipal.add(caixaNome);
 
-		JLabel preco = new JLabel("Digite o preço: ");
+		JLabel preco = new JLabel("Digite o preï¿½o: ");
 		preco.setFont(grande);
 		preco.setBounds(new Rectangle(20, 100, 120, 14));
 
@@ -162,7 +170,11 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 		botaoListarLojas.setBounds(20, 200, 100, 20);
 		botaoConfirma.setBounds(150, 300, 100, 20);
 		botaoSair.setBounds(250, 300, 80, 20);
+		botaoPedidos.setBounds(20, 231, 100, 23);
+		botaoProdutos.setBounds(20, 265, 100, 23);
 
+		painelPrincipal.add(botaoPedidos);
+		painelPrincipal.add(botaoProdutos);
 		painelPrincipal.add(botaoListarLojas);
 		painelPrincipal.add(botaoConfirma);
 		painelPrincipal.add(botaoSair);

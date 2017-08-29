@@ -40,9 +40,9 @@ public class TelaCadastroLoja extends JFrame implements ActionListener {
 	JButton botaoConfirma = new JButton("Cadastar");
 	JButton botaoVolta = new JButton("Voltar");
 
-	 ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
+	ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
 
-	 JLabel label = new JLabel(imagem);
+	JLabel label = new JLabel(imagem);
 
 	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) {
@@ -213,13 +213,13 @@ public class TelaCadastroLoja extends JFrame implements ActionListener {
 		caixaSenha.setBounds(new Rectangle(110, 240, 335, 14));
 		painelPrincipal.add(caixaSenha);
 
-		 label.setBounds(0, 0, 500, 400);
+		label.setBounds(0, 0, 500, 400);
 		botaoConfirma.setBounds(150, 300, 100, 20);
 		botaoVolta.setBounds(250, 300, 80, 20);
 
 		painelPrincipal.add(botaoConfirma);
 		painelPrincipal.add(botaoVolta);
-		 painelPrincipal.add(label);
+		painelPrincipal.add(label);
 	}
 
 	public static void main(String[] args) {

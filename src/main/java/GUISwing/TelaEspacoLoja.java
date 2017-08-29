@@ -25,6 +25,7 @@ public class TelaEspacoLoja extends JFrame implements ActionListener {
 	private JCheckBox cachorro, gato;
 	JButton botaoPesquisar = new JButton("Pesquisar");
 	JButton botaoSair = new JButton("Sair");
+	JButton botaoListar = new JButton("Listar");
 
 	ImageIcon imagem = new ImageIcon(getClass().getResource("cachorro-e-gato-podem-viver-juntos.jpg"));
 
@@ -33,7 +34,7 @@ public class TelaEspacoLoja extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == botaoPesquisar && !caixaPesquisa.getText().equals("")) {
 			String aux = caixaPesquisa.getText();
-			TelaPesquisarListarProduto busca = new TelaPesquisarListarProduto(aux);
+			TelaPesquisarProdutoLoja busca = new TelaPesquisarProdutoLoja(aux);
 			busca.setResizable(false);
 			busca.setLocationRelativeTo(null);
 			busca.setVisible(true);
@@ -46,6 +47,13 @@ public class TelaEspacoLoja extends JFrame implements ActionListener {
 			menuInicial.setVisible(true);
 			dispose();
 
+		} else if (e.getSource() == botaoListar) {
+			TelaListarProdutoLoja lista = new TelaListarProdutoLoja();
+			lista.setResizable(false);
+			lista.setLocationRelativeTo(null);
+			lista.setVisible(true);
+			dispose();
+
 		} else
 			JOptionPane.showMessageDialog(null, "Preencha todos os campos");
 
@@ -55,6 +63,7 @@ public class TelaEspacoLoja extends JFrame implements ActionListener {
 
 		botaoSair.addActionListener(this);
 		botaoPesquisar.addActionListener(this);
+		botaoListar.addActionListener(this);
 
 		setSize(500, 400);
 		setVisible(true);
@@ -89,12 +98,14 @@ public class TelaEspacoLoja extends JFrame implements ActionListener {
 		label.setBounds(-0, -20, 500, 400);
 
 		botaoPesquisar.setBounds(10, 80, 100, 17);
+		botaoListar.setBounds(370, 80, 100, 17);
 
 		painelPrincipal.add(botaoPesquisar);
 
 		botaoSair.setBounds(200, 275, 100, 20);
 
 		painelPrincipal.add(botaoSair);
+		painelPrincipal.add(botaoListar);
 		painelPrincipal.add(label);
 	}
 
