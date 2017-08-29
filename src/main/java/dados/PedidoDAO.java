@@ -27,7 +27,7 @@ public class PedidoDAO implements IPedidoDAO {
 	}
 	
 	public EntityManager getEM(){
-		emf = Persistence.createEntityManagerFactory("Stockers");
+		emf = Persistence.createEntityManagerFactory("stockers");
 		em = emf.createEntityManager();
 		//emf.close();
 		return em;

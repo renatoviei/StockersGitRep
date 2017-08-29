@@ -59,10 +59,10 @@ public class TelaEspacoAdm extends JFrame implements ActionListener {
 
 					JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
 
-					TelaMenuInicial menuInicial = new TelaMenuInicial();
-					menuInicial.setResizable(false);
-					menuInicial.setLocationRelativeTo(null);
-					menuInicial.setVisible(true);
+					TelaEspacoAdm telaAdm = new TelaEspacoAdm();
+					telaAdm.setResizable(false);
+					telaAdm.setLocationRelativeTo(null);
+					telaAdm.setVisible(true);
 					dispose();
 				} catch (NumberFormatException nfe) {
 					JOptionPane.showMessageDialog(null, "Digite um numero no campo do preco");
